@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59A03485-8B44-4D59-A384-B4CF69E5DC5E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WWPlatform.Model</RootNamespace>
+    <AssemblyName>WWPlatform.Model</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ATK\Article.cs" />
+    <Compile Include="ATK\Content.cs" />
+    <Compile Include="ATK\IAtkRepository.cs" />
+    <Compile Include="ATK\IndexHistory.cs" />
+    <Compile Include="RefData\AtkClass.cs" />
+    <Compile Include="CNTV\Feature.cs" />
+    <Compile Include="CNTV\IFeatureRepository.cs" />
+    <Compile Include="CNTV\IWebcastRepository.cs" />
+    <Compile Include="CNTV\Offering.cs" />
+    <Compile Include="CNTV\Script.cs" />
+    <Compile Include="CNTV\Webcast.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RefData\Catalog.cs" />
+    <Compile Include="RefData\Dynasty.cs" />
+    <Compile Include="RefData\HintTag.cs" />
+    <Compile Include="RefData\ICatalogRepository.cs" />
+    <Compile Include="RefData\IDynastyRepository.cs" />
+    <Compile Include="RefData\IHintTagRepository.cs" />
+    <Compile Include="RefData\ILectuerRepository.cs" />
+    <Compile Include="RefData\IndexCatalog.cs" />
+    <Compile Include="RefData\IRefDataRepository.cs" />
+    <Compile Include="RefData\ISubtypeRepository.cs" />
+    <Compile Include="RefData\Lectuer.cs" />
+    <Compile Include="RefData\RefData.cs" />
+    <Compile Include="RefData\Subtype.cs" />
+    <Compile Include="SiteUsers\ISiteUserRepository.cs" />
+    <Compile Include="SiteUsers\SiteUser.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WWPlatform.Core\WWPlatform.Core.csproj">
+      <Project>{9594124C-761C-489B-98CC-8B2198CB0452}</Project>
+      <Name>WWPlatform.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="notes.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,76 @@
+﻿.mod_tit {
+    font-family:"黑体";
+    font-size: 20px;
+    text-align: center;
+    font-weight:normal;
+}
+.mod_info ul {
+    padding: 5px 0;
+    overflow: hidden;
+    border-bottom: 1px solid gray;
+    margin-bottom:20px;
+}
+.mod_info ul li {
+    width: 380px;
+    float: left;
+    line-height: 24px;
+}
+.mod_info .vico {
+    width: 70px;
+    background: url("../images/vico.png") no-repeat scroll left center transparent;
+    padding-left: 23px;
+}
+.mod_inner {
+    margin: 0 auto;
+    color: #2d2d2d;
+}
+.mod_inner .mod_cont p {
+    text-indent: 2.5em;
+    line-height: 180%;
+    margin: 5px 0;
+    font-size: 14px;
+}
+.mod_inner .mod_cont h1 {
+    text-indent: 2.5em;
+    line-height: 180%;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: gray;
+    font-weight: normal;
+    padding:5px;
+}
+.mod_inner .mod_license {
+    border: 1px solid #e8e7d0;
+    padding: 0 10px;
+    background-color: rgb(248,248,248);
+    margin: 10px 0;
+    min-height: 10px;
+}
+.mod_inner .mod_license img {
+    margin: 10px 8px 0 0;
+}
+.mod_inner .mod_license p {
+    margin: 8px 0;
+}
+.mod_ulike {
+    margin: 15px 0 0 0;
+}
+.mod_kin .mod_cont,.mod_ulike .mod_cont{
+    padding:0 0 10px 10px;
+}
+.mod_cont ul li{
+    line-height:24px;
+}
+.mod_vic{
+    background: url("images/vico.png") no-repeat scroll left center transparent;
+}
+.mod_prev{
+    float:left;
+    text-align:left;
+    width:50%;
+}
+.mod_next{
+    float:left;
+    text-align:right;
+    width:50%;
+}

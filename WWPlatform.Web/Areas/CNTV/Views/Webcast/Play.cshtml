@@ -1,0 +1,204 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.CNTV.PBViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var w = Model.Webcast;
+    var lectuer = w.Feature.Lectuer == null ? "" : w.Feature.Lectuer.Name;
+    ViewBag.Title = string.Format("{0} {1} {2} 视频 mp4 文化中国 百家讲坛", w.Title,w.Feature.Title, lectuer);
+}
+@section res{
+    <meta name="keywords" content="@w.Title @w.Feature.Title @lectuer" />
+    <meta name="description" content="@w.Excerpt" />
+    <link href="@Url.StyleSheet("cntv/play.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Javascript("cntv/txv.play.js")" type="text/javascript"></script>
+}
+@section head{
+    @Html.Action("SimpleHeader","home")
+}
+<div class="mod_player_wrap">
+    <div class="mod_inner">
+        <div class="mod_paths">
+            <a href="@string.Format("/lib/2_{0}_1_1.html", @w.Feature.Catalog.Idkey)">@w.Feature.Catalog.Title</a> > 
+            <a href="@Url.Action(w.Feature)">@w.Feature.Title</a> > 
+            <span id="h1_title">@w.Title</span>
+        </div>
+        <div class="mod_player_full">
+            <div class="mod_player w640" id="mod_player">
+                <div id="flashplayer">
+                </div>
+            </div>
+        </div>
+        <script src="@Url.Javascript("swfobject.js")" type="text/javascript"></script>
+        <script src="@Url.Javascript("fplayer.js")" type="text/javascript"></script>
+        <script type="text/javascript">
+            var fo = createPlayer("v_player", 640, 480);
+            fo.addVariable("videoId", "@w.Videoid");
+            fo.addVariable("url", "@w.RefUrl");
+            fo.addVariable("videoCenterId", "@w.Coreid");
+            writePlayer(fo, "flashplayer");
+        </script>
+        <div id="mod_playlist" class="mod_playlist">
+            <div class="mod_selector w640">
+                <div class="mod_tips">温馨提示：加载时间过长？请<a href="javascript:window.location.reload();">刷新</a>页面重试！</div>
+                <a id="mod_toggle" class="mod_toggle" href="javascript:;">更多<span class="ico"></span></a>
+            </div>
+            <style type="text/css">
+                .show{
+                    display:block !important;
+                }
+            </style>
+            <div class="mod_cont w640">
+                <ul>
+                    @foreach (var item in Model.Kin.Select((p,i)=>new{Webcast=p,Index =i+1}))
+                    {
+                        <li id="li-@item.Webcast.Idkey" idx="@item.Index" style="display:none;">
+                            <a title="@item.Webcast.Title" href="@Url.Action(item.Webcast)">
+                                <span class="v_tit">@item.Webcast.Title</span>
+                                <span class="v_date">@item.Webcast.Aired.ToString("yyyy-M-d")</span>
+                            </a>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    if ($("#mod_playlist li").length > 8) {
+                        $("#mod_toggle").show();
+                    }
+                    else {
+                        $("#mod_toggle").hide();
+                    }
+
+                    $("#mod_toggle").bind("click", function () {
+                        if ($(this).hasClass("expand")) {
+                            $(this).removeClass("expand");
+                            $.each($("#mod_playlist li"), function (index, item) {
+                                $(item).removeClass("show");
+                            });
+                        }
+                        else {
+                            $(this).addClass("expand");
+                            $.each($("#mod_playlist li"), function (index, item) {
+                                $(item).addClass("show");
+                            });
+                        }
+                    });
+
+                    $("#li-@w.Idkey").addClass("current");
+                    $("#li-@w.Idkey a").attr("href", "javascript:;");
+                    var idx = $("#li-@w.Idkey").attr("idx");
+                    var pagesize = 8;
+                    var pageindex = Math.ceil(idx / pagesize);
+                    $.each($("#mod_playlist li"), function (index, item) {
+                        if ((pagesize * (pageindex - 1)) <= index && index < pagesize * pageindex) {
+                            $(item).show();
+                        }
+                    });
+                });
+            </script>
+        </div>
+    </div>
+</div>
+<div class="container_16 clearfix">
+    <div class="grid_11">
+        <!--相关推荐开始-->
+        <div class="mod_recommend_video bor" id="mod_recommend_video">
+            <h2 class="mod_tit_bg">您可能也喜欢</h2>
+            <div id="mod_ulike" class="mod_ctrl">
+                <ul>
+                    @for(int i=1;i<=Math.Ceiling(Model.Ulike.Count() / 5.0);i++)
+                    {
+                        <li class="">
+                            <a href="javascript:;">i</a>
+                        </li>
+                    }
+                </ul>
+                <button type="button" class="prev">上一页</button>
+                <button type="button" class="next over">下一页</button>
+            </div>
+            <div class="mod_cont">
+                <ul class="mod_list_pic_v" id="ul_ulike_list">
+                    @foreach (var f in Model.Ulike)
+                    {
+                        <li>
+                            <a href="@Url.Action(f)" class="mod_poster_v" target="_blank">
+                                <img src="@f.Cover" alt="@f.Title" />
+                            </a>
+                            <h6>
+                                <a href="@Url.Action(f)" target="_blank" title="@f.Title">@f.Title</a>
+                            </h6>
+                            <p>
+                                @f.Notes
+                            </p>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <!--相关推荐结束-->
+        <!--
+        <div>
+            <form style="" id="form_comment_post" class="mod_add_comment" method="post" action="javascript:;">
+            <h3 class="c_txt4">
+                我来说两句：</h3>
+            <textarea id="tb_comment_content" rows="10" cols="400"></textarea>
+            <div style="display: ;" id="mod_comment_cnt" class="mod_checkcode">
+                还能输入120个字
+            </div>
+            <button id="btn_comment_send" title="提交" type="button" class="bt_submit">
+                提交</button>
+            </form>
+        </div>
+        -->
+    </div>
+    <div class="grid_5">
+        <div class="mod_info bor">
+            <h2 class="mod_tit_box">
+                <span>视频信息</span>
+            </h2>
+            <div class="mod_cont">
+                <ul class="details_list">
+                    <li>
+                        <span class="detail_title">主题：</span>
+                        <div class="detail_content">
+                            <a href="@Url.Action(w.Feature)" title="@w.Feature.Title">@w.Feature.Title</a>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="detail_title">关键字：</span>
+                        <div class="detail_content">
+                        @if (!string.IsNullOrWhiteSpace(w.Tags))
+                        {
+                            foreach (var tag in w.Tags.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                            {
+                                <a href="@string.Format("/search.html?ms_key={0}",System.Web.HttpUtility.UrlEncode(tag.Trim()))" target="search">@tag</a>
+                            }
+                        }
+                        </div>
+                    </li>
+                    <li>
+                        <span class="detail_title">首播：</span>
+                        <div class="detail_content">
+                            @w.Aired.ToString("yyyy年M月d日")
+                        </div>
+                    </li>
+                    <li>
+                        <span class="detail_title">历史播放量：</span>
+                        <div class="detail_content">
+                            @w.Visit
+                        </div>
+                    </li>
+                </ul>
+                <div id="mod_desc" class="mod_desc">
+                    <p class="mod_cont">
+                        @w.Excerpt
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    txv.play.init();
+</script>

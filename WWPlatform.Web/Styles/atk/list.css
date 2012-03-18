@@ -1,0 +1,30 @@
+﻿.mod_list dl{
+    margin-bottom:15px;
+}
+.mod_list dl dd{
+    line-height:24px;
+}
+.mod_list dl dt{
+    font-family:"黑体";
+    font-size:20px;
+}
+.mod_list dl dt span{
+    font-size:12px;
+    font-weight:normal;
+}
+.mod_list ul li
+{
+    background: url("../images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    line-height: 28px;
+    padding-left: 16px;
+    font-size:14px;
+}
+.mod_list ul li span {
+    font-family:"黑体";
+    float: right;
+    font-size: 12px;
+}
+.mod_list ul li.grp
+{
+    margin-bottom:15px;
+}

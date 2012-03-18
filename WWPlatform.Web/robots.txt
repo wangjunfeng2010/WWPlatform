@@ -1,0 +1,4 @@
+﻿User-agent:*
+Disallow:/lib/
+Disallow:/search.html
+Sitemap:http://www.culture-visions.com/sitemap.xml

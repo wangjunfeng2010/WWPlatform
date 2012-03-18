@@ -1,0 +1,20 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <!--callback页面仅用作中间跳转页面，执行了如下的javascript而已-->
+    <div>
+        <script type="text/javascript">
+            opener.ptlogin2_onClose(@ViewBag.LoginResult.ToString().ToLower());
+            window.close();
+        </script>
+    </div>
+</body>
+</html>

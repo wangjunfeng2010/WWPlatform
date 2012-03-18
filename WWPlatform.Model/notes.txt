@@ -1,0 +1,1 @@
+﻿POCO Model采用entity framework 4.1之database first方式

@@ -1,0 +1,165 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.CNTV.PreviewViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var f = Model.Feature;
+    var lectuer = string.Format("{0}", f.Lectuer == null ? "" : f.Lectuer.Name);
+    ViewBag.Title = string.Format("{0} {1} 文化中国 百家讲坛", f.Title, lectuer);
+}
+@section  res{
+    <meta name="keywords" content="@f.Title @lectuer @f.Catalog.Title" />
+    <meta name="description" content="@f.Brief.Truncate(100)" />
+    <link href="@Url.StyleSheet("cntv/preview.css")" rel="Stylesheet" type="text/css" />
+}
+@section head{
+    @Html.Partial("Header")
+}
+<div class="container_16 clearfix">
+    <div class="grid_13">
+        <div class="mod_info">
+            <div class="mod_txt">
+                <div class="mod_cover">
+                    <img id="img_cover_pic" alt="@f.Title" title="@f.Title" src="@string.Format("{0}", f.HDImage ?? f.Cover)" />
+                    @if (f.Webcasts.All(w => w.Script != null))
+                    {
+                        <p>
+                            <a href="@Url.Action("create", "home", new { area = "pdf", token = "f" + f.Base64Key })">
+                                下载全部讲稿</a>
+                        </p>
+                    }
+                </div>
+                <div>
+                    <h1>
+                        <a class="c_txt5" href="javascript:;">@f.Title</a>
+                    </h1>
+                    <p class="mod_review">
+                        <strong class="quotes_symbols_left">“</strong>@f.Notes<strong class="quotes_symbols_right">”</strong></p>
+                    <ul class="details_list">
+                        <li>
+                            讲师：
+                            @if (f.Lectuer != null)
+                            {
+                                <text><a href="@string.Format("/lib/4_{0}_1_1.html", @f.Lectuer.Idkey)">@lectuer</a></text>
+                            }
+                        </li>
+                        <li>
+                            朝代：<a href="@string.Format("/lib/3_{0}_1_1.html", f.Dynasty.Idkey)">@f.Dynasty.Title</a>
+                        </li>
+                        <li>
+                            题材：<a href="@string.Format("/lib/2_{0}_1_1.html", @f.Catalog.Idkey)">@f.Catalog.Title</a>
+                        </li>
+                        <li>
+                            分类：
+                            @foreach (var s in f.Offerings.Select(s => s.Subtype))
+                            {
+                                <a href="@string.Format("/lib/1_{0}_1_1.html", @s.Idkey)">@s.Title</a>
+                            }
+                        </li>
+                        <li>
+                            剧集：共<text>@f.Webcasts.Count</text>集
+                        </li>
+                        <li>
+                            播放次数：@f.Webcasts.Sum(p => p.Visit)次
+                        </li>
+                    </ul>
+                    <div id="mod_desc" class="mod_desc">
+                        <p class="mod_cont">
+                            内容简介：@f.Brief
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mod_video_list">
+            <div class="mod_tit_wrap">
+                <h2 class="mod_tit">
+                    视频列表</h2>
+                <!--简单分页 开始-->
+                <div id="pager2" class="mod_pagenav s_page">
+                </div>
+                <!--简单分页 结束-->
+            </div>
+            <div class="mod_cont">
+                <ul id="ul_mod_list">
+                    @foreach (var w in f.Webcasts.OrderByDescending(w => w.Aired))
+                    {
+                        <li class="bbor">
+                            <div class="mod_pic">
+                                <a class="mod_poster" href="@Url.Action(w)" title="@w.Title">
+                                    <img alt="@w.Title" title="@w.Title" src="@w.Image" />
+                                    <span class="mod_mask"></span></a>
+                            </div>
+                            <div>
+                                <dl>
+                                    <dt><a href="@Url.Action(w)" title="@w.Title">@w.Title</a> </dt>
+                                    <dd>
+                                        首播： @w.Aired.ToString("yyyy-M-d")
+                                    </dd>
+                                    <dd>
+                                        播放：@w.Visit</dd>
+                                    <dd>
+                                        评论：暂无</dd>
+                                    <dd style="width: 100%;">
+                                        关键字：
+                                        @if (string.IsNullOrWhiteSpace(w.Tags))
+                                        {
+                                            <text>暂无</text>
+                                        }
+                                        else
+                                        {
+                                            foreach (var tag in w.Tags.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                                            {
+                                            <a href="@string.Format("/search.html?ms_key={0}", System.Web.HttpUtility.UrlEncode(tag.Trim()))" target="search">@tag</a>
+                                            }
+                                        }
+                                    </dd>
+                                </dl>
+                                <p>
+                                    <span>内容简介：</span>@w.Excerpt
+                                </p>
+                                <ul class="mod_links">
+                                    @if (w.Script != null)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("browse", "webcast", new { id = w.Base64Key })" title="@w.Title">
+                                                阅读讲稿</a>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </li>                    
+                    }
+                </ul>
+            </div>
+            <!--分页 开始-->
+            <div id="pager" class="mod_pagenav">
+            </div>
+            <!--分页结束-->
+        </div>
+    </div>
+    <div class="grid_3">
+        <div class="mod_guess_video_list">
+            <h3>
+                喜欢本系列的人还喜欢</h3>
+            <ul id="ul_ulike_list">
+                @foreach (var item in Model.Ulike)
+                { 
+                    <li>
+                        <a target="_self" href="@Url.Action(item)">
+                            <img alt="@item.Title" src="@item.Cover"/>
+                        </a>
+                        <h6>
+                            <a title="@item.Title" target="_self" href="@Url.Action(item)">@item.Title</a>
+                        </h6>
+                        <p>@item.Notes</p>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="@Url.Javascript("cntv/txv.preview.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    txv.w_list.init();
+</script>

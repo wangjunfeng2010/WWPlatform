@@ -1,0 +1,1156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>      
+    <Schema Namespace="WWPlatform.Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="WWPlatformModelStoreContainer">
+          <EntitySet Name="article" EntityType="WWPlatform.Model.Store.article" store:Type="Tables" Schema="atk" />
+          <EntitySet Name="content" EntityType="WWPlatform.Model.Store.content" store:Type="Tables" Schema="atk" />
+          <EntitySet Name="history" EntityType="WWPlatform.Model.Store.history" store:Type="Tables" Schema="atk" />
+          <EntitySet Name="feature" EntityType="WWPlatform.Model.Store.feature" store:Type="Tables" Schema="cntv" />
+          <EntitySet Name="offering" EntityType="WWPlatform.Model.Store.offering" store:Type="Tables" Schema="cntv" />
+          <EntitySet Name="script" EntityType="WWPlatform.Model.Store.script" store:Type="Tables" Schema="cntv" />
+          <EntitySet Name="webcast" EntityType="WWPlatform.Model.Store.webcast" store:Type="Tables" Schema="cntv" />
+          <EntitySet Name="siteuser" EntityType="WWPlatform.Model.Store.siteuser" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="book" EntityType="WWPlatform.Model.Store.book" store:Type="Tables" Schema="fiction" />
+          <EntitySet Name="chapter" EntityType="WWPlatform.Model.Store.chapter" store:Type="Tables" Schema="fiction" />
+          <EntitySet Name="section" EntityType="WWPlatform.Model.Store.section" store:Type="Tables" Schema="fiction" />
+          <EntitySet Name="catalog" EntityType="WWPlatform.Model.Store.catalog" store:Type="Tables" Schema="ref" />
+          <EntitySet Name="class" EntityType="WWPlatform.Model.Store.class" store:Type="Tables" Schema="ref" />
+          <EntitySet Name="dynasty" EntityType="WWPlatform.Model.Store.dynasty" store:Type="Tables" Schema="ref" />
+          <EntitySet Name="hinttag" EntityType="WWPlatform.Model.Store.hinttag" store:Type="Tables" Schema="ref" />
+          <EntitySet Name="lectuer" EntityType="WWPlatform.Model.Store.lectuer" store:Type="Tables" Schema="ref" />
+          <EntitySet Name="subtype" EntityType="WWPlatform.Model.Store.subtype" store:Type="Tables" Schema="ref" />
+          <AssociationSet Name="Digest_TypeConstraint_From_Article_To_digest" Association="WWPlatform.Model.Store.Digest_TypeConstraint_From_Article_To_digest">
+            <End Role="article" EntitySet="article" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="fk_article" Association="WWPlatform.Model.Store.fk_article">
+            <End Role="article" EntitySet="article" />
+            <End Role="content" EntitySet="content" />
+          </AssociationSet>
+          <AssociationSet Name="fk_catalog" Association="WWPlatform.Model.Store.fk_catalog">
+            <End Role="catalog" EntitySet="catalog" />
+            <End Role="feature" EntitySet="feature" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chapter_book" Association="WWPlatform.Model.Store.fk_chapter_book">
+            <End Role="book" EntitySet="book" />
+            <End Role="chapter" EntitySet="chapter" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chapter_section" Association="WWPlatform.Model.Store.fk_chapter_section">
+            <End Role="section" EntitySet="section" />
+            <End Role="chapter" EntitySet="chapter" />
+          </AssociationSet>
+          <AssociationSet Name="fk_class" Association="WWPlatform.Model.Store.fk_class">
+            <End Role="class" EntitySet="class" />
+            <End Role="history" EntitySet="history" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dynasty" Association="WWPlatform.Model.Store.fk_dynasty">
+            <End Role="dynasty" EntitySet="dynasty" />
+            <End Role="feature" EntitySet="feature" />
+          </AssociationSet>
+          <AssociationSet Name="fk_feature" Association="WWPlatform.Model.Store.fk_feature">
+            <End Role="feature" EntitySet="feature" />
+            <End Role="webcast" EntitySet="webcast" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lectuer" Association="WWPlatform.Model.Store.fk_lectuer">
+            <End Role="lectuer" EntitySet="lectuer" />
+            <End Role="feature" EntitySet="feature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_offering_feature" Association="WWPlatform.Model.Store.FK_offering_feature">
+            <End Role="feature" EntitySet="feature" />
+            <End Role="offering" EntitySet="offering" />
+          </AssociationSet>
+          <AssociationSet Name="FK_offering_subtype" Association="WWPlatform.Model.Store.FK_offering_subtype">
+            <End Role="subtype" EntitySet="subtype" />
+            <End Role="offering" EntitySet="offering" />
+          </AssociationSet>
+          <AssociationSet Name="fk_script" Association="WWPlatform.Model.Store.fk_script">
+            <End Role="script" EntitySet="script" />
+            <End Role="webcast" EntitySet="webcast" />
+          </AssociationSet>
+          <AssociationSet Name="fk_section_book" Association="WWPlatform.Model.Store.fk_section_book">
+            <End Role="book" EntitySet="book" />
+            <End Role="section" EntitySet="section" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="article">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="excerpt" Type="nvarchar" MaxLength="350"/>
+          <Property Name="author" Type="nvarchar(max)" />
+          <Property Name="source" Type="nvarchar(max)" />
+          <Property Name="issued" Type="datetime" Nullable="false" />
+          <Property Name="visit" Type="int" Nullable="false" />
+          <Property Name="discriminator" Type="smallint" Nullable="false" DefaultValue="1" />
+        </EntityType>
+        <EntityType Name="content">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="atkid" Type="int" Nullable="false" />
+          <Property Name="text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="idx" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="history">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="classid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="feature">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="30" />
+          <Property Name="cover" Type="varchar" MaxLength="150" />
+          <Property Name="catalogid" Type="int" Nullable="false" />
+          <Property Name="lectuerid" Type="int" />
+          <Property Name="asslide" Type="bit" Nullable="false" />
+          <Property Name="hdimage" Type="varchar" MaxLength="150" />
+          <Property Name="notes" Type="nvarchar" MaxLength="50" />
+          <Property Name="refurl" Type="varchar" MaxLength="150" />
+          <Property Name="category" Type="nvarchar" MaxLength="400" />
+          <Property Name="brief" Type="ntext" />
+          <Property Name="dynastyid" Type="int" Nullable="false" />
+          <Property Name="hot" Type="bit" Nullable="false" />
+          <Property Name="top" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="offering">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="featureid" Type="int" Nullable="false" />
+          <Property Name="subtypeid" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="script">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="text" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="compiled" Type="datetime" Nullable="false" />
+          <Property Name="visit" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webcast">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="visit" Type="int" />
+          <Property Name="aired" Type="datetime" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="image" Type="varchar" Nullable="false" MaxLength="150" />
+          <Property Name="excerpt" Type="ntext" Nullable="false" />
+          <Property Name="featureid" Type="int" Nullable="false" />
+          <Property Name="tags" Type="nvarchar" MaxLength="60" />
+          <Property Name="coreid" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="refurl" Type="varchar" MaxLength="150" />
+          <Property Name="timelong" Type="char" MaxLength="5" />
+          <Property Name="score" Type="numeric" Precision="2" Scale="1" />
+          <Property Name="videoid" Type="char" Nullable="false" MaxLength="14" />
+          <Property Name="scriptid" Type="int" />
+        </EntityType>
+        <EntityType Name="siteuser">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="nickname" Type="nvarchar" MaxLength="20" />
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="openid" Type="char" Nullable="false" MaxLength="32" />
+          <Property Name="figureurl" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="book">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="150" />
+          <Property Name="cover1" Type="varchar" MaxLength="150" />
+          <Property Name="cover2" Type="varchar" MaxLength="150" />
+          <Property Name="cover3" Type="varchar" MaxLength="150" />
+          <Property Name="brief" Type="ntext" />
+          <Property Name="author" Type="nvarchar" MaxLength="35" />
+          <Property Name="url" Type="varchar" MaxLength="150" />
+          <Property Name="refurl" Type="varchar" MaxLength="150" />
+          <Property Name="published" Type="date" Nullable="false" />
+          <Property Name="top" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="chapter">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="bookid" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="150" />
+          <Property Name="sectionid" Type="int" Nullable="false" />
+          <Property Name="text" Type="ntext" />
+          <Property Name="seq" Type="smallint" Nullable="false" />
+          <Property Name="refurl" Type="varchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="section">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="brief" Type="ntext" Nullable="false" />
+          <Property Name="bookid" Type="int" Nullable="false" />
+          <Property Name="seq" Type="smallint" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="catalog">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="order" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="class">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="60" />
+          <Property Name="hot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dynasty">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="25" />
+          <Property Name="hot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hinttag">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" MaxLength="10" />
+          <Property Name="pinyin" Type="varchar" MaxLength="35" />
+        </EntityType>
+        <EntityType Name="lectuer">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="15" />
+          <Property Name="brief" Type="ntext" />
+          <Property Name="photo" Type="varchar" MaxLength="150" />
+          <Property Name="hot" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="subtype">
+          <Key>
+            <PropertyRef Name="idkey" />
+          </Key>
+          <Property Name="idkey" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" MaxLength="15" />
+          <Property Name="hot" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="Digest_TypeConstraint_From_Article_To_digest">
+          <End Role="article" Type="WWPlatform.Model.Store.article" Multiplicity="1" />
+          <End Role="history" Type="WWPlatform.Model.Store.history" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="article">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="idkey" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_article">
+          <End Role="article" Type="WWPlatform.Model.Store.article" Multiplicity="1" />
+          <End Role="content" Type="WWPlatform.Model.Store.content" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="article">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="content">
+              <PropertyRef Name="atkid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_catalog">
+          <End Role="catalog" Type="WWPlatform.Model.Store.catalog" Multiplicity="1" />
+          <End Role="feature" Type="WWPlatform.Model.Store.feature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="catalog">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="feature">
+              <PropertyRef Name="catalogid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_chapter_book">
+          <End Role="book" Type="WWPlatform.Model.Store.book" Multiplicity="1" />
+          <End Role="chapter" Type="WWPlatform.Model.Store.chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="book">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="chapter">
+              <PropertyRef Name="bookid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_chapter_section">
+          <End Role="section" Type="WWPlatform.Model.Store.section" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="chapter" Type="WWPlatform.Model.Store.chapter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="section">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="chapter">
+              <PropertyRef Name="sectionid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_class">
+          <End Role="class" Type="WWPlatform.Model.Store.class" Multiplicity="1" />
+          <End Role="history" Type="WWPlatform.Model.Store.history" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="class">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="history">
+              <PropertyRef Name="classid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_dynasty">
+          <End Role="dynasty" Type="WWPlatform.Model.Store.dynasty" Multiplicity="1" />
+          <End Role="feature" Type="WWPlatform.Model.Store.feature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dynasty">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="feature">
+              <PropertyRef Name="dynastyid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_feature">
+          <End Role="feature" Type="WWPlatform.Model.Store.feature" Multiplicity="1" />
+          <End Role="webcast" Type="WWPlatform.Model.Store.webcast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feature">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="webcast">
+              <PropertyRef Name="featureid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_lectuer">
+          <End Role="lectuer" Type="WWPlatform.Model.Store.lectuer" Multiplicity="0..1" />
+          <End Role="feature" Type="WWPlatform.Model.Store.feature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="lectuer">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="feature">
+              <PropertyRef Name="lectuerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_offering_feature">
+          <End Role="feature" Type="WWPlatform.Model.Store.feature" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="offering" Type="WWPlatform.Model.Store.offering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="feature">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="offering">
+              <PropertyRef Name="featureid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_offering_subtype">
+          <End Role="subtype" Type="WWPlatform.Model.Store.subtype" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="offering" Type="WWPlatform.Model.Store.offering" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="subtype">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="offering">
+              <PropertyRef Name="subtypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_script">
+          <End Role="script" Type="WWPlatform.Model.Store.script" Multiplicity="0..1" />
+          <End Role="webcast" Type="WWPlatform.Model.Store.webcast" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="script">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="webcast">
+              <PropertyRef Name="scriptid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_section_book">
+          <End Role="book" Type="WWPlatform.Model.Store.book" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="section" Type="WWPlatform.Model.Store.section" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="book">
+              <PropertyRef Name="idkey" />
+            </Principal>
+            <Dependent Role="section">
+              <PropertyRef Name="bookid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WWPlatform.Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="WWPlatformEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="catalogs" EntityType="WWPlatform.Model.Catalog" />
+          <EntitySet Name="subtypes" EntityType="WWPlatform.Model.Subtype" />
+          <EntitySet Name="dynasties" EntityType="WWPlatform.Model.Dynasty" />
+          <EntitySet Name="features" EntityType="WWPlatform.Model.Feature" />
+          <EntitySet Name="lectuers" EntityType="WWPlatform.Model.Lectuer" />
+          <EntitySet Name="webcasts" EntityType="WWPlatform.Model.Webcast" />
+          <EntitySet Name="offerings" EntityType="WWPlatform.Model.Offering"/>
+          <EntitySet Name ="siteusers" EntityType="WWPlatform.Model.SiteUser"/>
+          <EntitySet Name="hinttags" EntityType="WWPlatform.Model.HintTag"/>
+          <EntitySet Name="scripts" EntityType="WWPlatform.Model.Script"/>
+          
+          <AssociationSet Name="fk_catalog" Association="WWPlatform.Model.fk_catalog">
+            <End Role="catalog" EntitySet="catalogs" />
+            <End Role="feature" EntitySet="features" />
+          </AssociationSet>
+          <AssociationSet Name="fk_feature" Association="WWPlatform.Model.fk_feature">
+            <End Role="feature" EntitySet="features" />
+            <End Role="webcast" EntitySet="webcasts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_script" Association="WWPlatform.Model.fk_script">
+            <End Role="script" EntitySet="scripts" />
+            <End Role="webcast" EntitySet="webcasts" />
+          </AssociationSet>
+          <AssociationSet Name="fk_lectuer" Association="WWPlatform.Model.fk_lectuer">
+            <End Role="lectuer" EntitySet="lectuers" />
+            <End Role="feature" EntitySet="features" />
+          </AssociationSet>
+          <AssociationSet Name="fk_dynasty" Association="WWPlatform.Model.fk_dynasty">
+            <End Role="dynasty" EntitySet="dynasties" />
+            <End Role="feature" EntitySet="features" />
+          </AssociationSet>
+          <AssociationSet Name="fk_offering_feature" Association="WWPlatform.Model.fk_offering_feature">
+            <End Role="offering" EntitySet="offerings" />
+            <End Role="feature" EntitySet="features" />
+          </AssociationSet>
+          <AssociationSet Name="fk_offering_subtype" Association="WWPlatform.Model.fk_offering_subtype">
+            <End Role="offering" EntitySet="offerings" />
+            <End Role="subtype" EntitySet="subtypes" />
+          </AssociationSet>
+          <EntitySet Name="books" EntityType="WWPlatform.Model.Book" />
+          <EntitySet Name="chapters" EntityType="WWPlatform.Model.Chapter" />
+          <EntitySet Name="sections" EntityType="WWPlatform.Model.Section" />
+          <AssociationSet Name="fk_chapter_book" Association="WWPlatform.Model.fk_chapter_book">
+            <End Role="book" EntitySet="books" />
+            <End Role="chapter" EntitySet="chapters" />
+          </AssociationSet>
+          <AssociationSet Name="fk_section_book" Association="WWPlatform.Model.fk_section_book">
+            <End Role="book" EntitySet="books" />
+            <End Role="section" EntitySet="sections" />
+          </AssociationSet>
+          <AssociationSet Name="fk_chapter_section" Association="WWPlatform.Model.fk_chapter_section">
+            <End Role="section" EntitySet="sections" />
+            <End Role="chapter" EntitySet="chapters" />
+          </AssociationSet>
+          <EntitySet Name="Articles" EntityType="WWPlatform.Model.Article" />
+          <EntitySet Name="AtkClasses" EntityType="WWPlatform.Model.AtkClass" />
+          <AssociationSet Name="fk_class" Association="WWPlatform.Model.fk_class">
+            <End Role="History" EntitySet="Articles" />
+            <End Role="AtkClass" EntitySet="AtkClasses" />
+          </AssociationSet>
+          <EntitySet Name="Contents" EntityType="WWPlatform.Model.Content" />
+          <AssociationSet Name="fk_article" Association="WWPlatform.Model.fk_article">
+            <End Role="Article" EntitySet="Articles" />
+            <End Role="content" EntitySet="Contents" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Catalog">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <Property Name="Title" Type="String" Nullable="false"/>
+          <Property Name="Order" Type="Int32" Nullable="false"/>
+          <NavigationProperty Name="Features" Relationship="WWPlatform.Model.fk_catalog" FromRole="catalog" ToRole="feature" />
+        </EntityType>
+        <EntityType Name="Subtype">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <Property Name="Title" Type="String" Nullable="false"/>
+          <Property Name="Hot" Type="Boolean" Nullable="false"/>
+          <NavigationProperty Name="Offerings" Relationship="WWPlatform.Model.fk_offering_subtype" FromRole="subtype" ToRole="offering" />
+        </EntityType>
+        <EntityType Name="Script">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <Property Name="Text" Type="String" Nullable="false"/>
+          <Property Name="Compiled" Type="DateTime" Nullable="false"/>
+          <Property Name="Visit" Type="Int32" Nullable="false"/>
+          <NavigationProperty Name="Webcast" Relationship="WWPlatform.Model.fk_script" FromRole="script" ToRole="webcast" />
+        </EntityType>
+        <EntityType Name="Dynasty">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <Property Name="Title" Type="String" Nullable="false"/>
+          <Property Name="Hot" Type="Boolean" Nullable="false"/>
+        </EntityType>
+        <EntityType Name="Feature">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Brief" Type="String" />
+          <Property Name="Cover" Type="String"/>
+          <Property Name="AsSlide" Type="Boolean" Nullable="false"/>
+          <Property Name="HDImage" Type="String"/>
+          <Property Name="Notes" Type="String"/>
+          <NavigationProperty Name="Webcasts" Relationship="WWPlatform.Model.fk_feature" FromRole="feature" ToRole="webcast" />
+          <NavigationProperty Name="Catalog" Relationship="WWPlatform.Model.fk_catalog" FromRole="feature" ToRole="catalog" />
+          <NavigationProperty Name="Lectuer" Relationship="WWPlatform.Model.fk_lectuer" FromRole="feature" ToRole="lectuer"/>
+          <NavigationProperty Name="Dynasty" Relationship="WWPlatform.Model.fk_dynasty" FromRole="feature" ToRole="dynasty"/>
+          <NavigationProperty Name="Offerings" Relationship="WWPlatform.Model.fk_offering_feature" FromRole="feature" ToRole="offering" />
+          <Property Type="Boolean" Name="Hot" Nullable="false" />
+          <Property Type="Boolean" Name="Top" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lectuer">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Brief" Type="String" />
+          <Property Name="Photo" Type="String" />
+          <Property Name="Hot" Type="Boolean" Nullable="false"/>
+          <NavigationProperty Name="Features" Relationship="WWPlatform.Model.fk_lectuer" FromRole="lectuer" ToRole="feature" />
+        </EntityType>
+        <EntityType Name="Webcast">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false" />
+          <Property Name="Visit" Type="Int32" Nullable="false" />
+          <Property Name="Aired" Type="DateTime" Nullable="false"/>
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Name="Excerpt" Type="String" Nullable="false" />
+          <Property Name="Tags" Type="String" />
+          <Property Name="Image" Type="String" Nullable="false"/>
+          <Property Name="Coreid" Type="String" Nullable="false"/>
+          <Property Name="Videoid" Type="String" Nullable="false"/>
+          <Property Name="RefUrl" Type="String"/>
+          <Property Name="Score" Type="Decimal"/>
+          <NavigationProperty Name="Feature" Relationship="WWPlatform.Model.fk_feature" FromRole="webcast" ToRole="feature" />
+          <NavigationProperty Name="Script" Relationship="WWPlatform.Model.fk_script" FromRole="webcast" ToRole="script"/>
+        </EntityType>
+        <EntityType Name="Offering">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <NavigationProperty Name="Feature" Relationship="WWPlatform.Model.fk_offering_feature" FromRole ="offering" ToRole="feature"/>
+          <NavigationProperty Name="Subtype" Relationship="WWPlatform.Model.fk_offering_subtype" FromRole ="offering" ToRole="subtype"/>
+        </EntityType>
+        <EntityType Name ="SiteUser">
+          <Key>
+            <PropertyRef Name ="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable ="false"/>
+          <Property Name="Nickname" Type="String" Nullable ="false"/>
+          <Property Name ="FigureUrl" Type="String"/>
+          <Property Name ="Openid" Type="String" Nullable="false"/>
+        </EntityType>
+        <EntityType Name="HintTag">
+          <Key>
+            <PropertyRef Name="Idkey"/>
+          </Key>
+          <Property Name="Idkey" Type="Int32" Nullable="false"/>
+          <Property Name="Title" Type="String" Nullable="false" />
+          <Property Type="String" Name="Pinyin" MaxLength="35" FixedLength="false" Unicode="false" />
+        </EntityType>
+        
+        <Association Name="fk_feature">
+          <End Role="feature" Type="WWPlatform.Model.Feature" Multiplicity="1" />
+          <End Role="webcast" Type="WWPlatform.Model.Webcast" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_script">
+          <End Role="script" Type="WWPlatform.Model.Script" Multiplicity="0..1" />
+          <End Role="webcast" Type="WWPlatform.Model.Webcast" Multiplicity="1" />
+        </Association>
+        <Association Name="fk_catalog">
+          <End Role="catalog" Type="WWPlatform.Model.Catalog" Multiplicity="1" />
+          <End Role="feature" Type="WWPlatform.Model.Feature" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_lectuer">
+          <End Role="lectuer" Type="WWPlatform.Model.Lectuer" Multiplicity="1"/>
+          <End Role="feature" Type="WWPlatform.Model.Feature" Multiplicity="*"/>
+        </Association>
+        <Association Name="fk_dynasty">
+          <End Role="dynasty" Type="WWPlatform.Model.Dynasty" Multiplicity="1"/>
+          <End Role="feature" Type="WWPlatform.Model.Feature" Multiplicity="*"/>
+        </Association>
+        <Association Name="fk_offering_feature">
+          <End Role="feature" Type="WWPlatform.Model.Feature" Multiplicity="1"/>
+          <End Role="offering" Type="WWPlatform.Model.Offering" Multiplicity="*"/>
+        </Association>
+        <Association Name="fk_offering_subtype">
+          <End Role="subtype" Type="WWPlatform.Model.Subtype" Multiplicity="1"/>
+          <End Role="offering" Type="WWPlatform.Model.Offering" Multiplicity="*"/>
+        </Association>
+        <EntityType Name="Book">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Cover1" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cover2" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Cover3" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Brief" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Author" MaxLength="35" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Url" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="Published"  Nullable="false"/>
+          <Property Type="Boolean" Name="Top" Nullable="false"/>
+          <NavigationProperty Name="Chapters" Relationship="WWPlatform.Model.fk_chapter_book" FromRole="book" ToRole="chapter" />
+          <NavigationProperty Name="Sections" Relationship="WWPlatform.Model.fk_section_book" FromRole="book" ToRole="section" />
+        </EntityType>
+        <EntityType Name="Chapter">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Seq" Nullable="false" />
+          <NavigationProperty Name="Book" Relationship="WWPlatform.Model.fk_chapter_book" FromRole="chapter" ToRole="book" />
+          <NavigationProperty Name="Section" Relationship="WWPlatform.Model.fk_chapter_section" FromRole="chapter" ToRole="section" />
+          <Property Type="String" Name="Text" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Section">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" />
+          <Property Type="String" Name="Brief" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="Seq" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false"/>
+          <NavigationProperty Name="Book" Relationship="WWPlatform.Model.fk_section_book" FromRole="section" ToRole="book" />
+          <NavigationProperty Name="Chapters" Relationship="WWPlatform.Model.fk_chapter_section" FromRole="section" ToRole="chapter" />
+        </EntityType>
+        <Association Name="fk_chapter_book">
+          <End Type="WWPlatform.Model.Book" Role="book" Multiplicity="1" />
+          <End Type="WWPlatform.Model.Chapter" Role="chapter" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_section_book">
+          <End Type="WWPlatform.Model.Book" Role="book" Multiplicity="1" />
+          <End Type="WWPlatform.Model.Section" Role="section" Multiplicity="*" />
+        </Association>
+        <Association Name="fk_chapter_section">
+          <End Type="WWPlatform.Model.Section" Role="section" Multiplicity="1" />
+          <End Type="WWPlatform.Model.Chapter" Role="chapter" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Article">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Excerpt" MaxLength="350" FixedLength="false" Unicode="true"/>
+          <Property Type="String" Name="Author" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Source" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Issued" Nullable="false" />
+          <Property Type="Int32" Name="Visit" Nullable="false" />
+          <NavigationProperty Name="Contents" Relationship="WWPlatform.Model.fk_article" FromRole="Article" ToRole="content" />
+        </EntityType>
+        <EntityType Name="History" BaseType="WWPlatform.Model.Article">
+          <NavigationProperty Name="AtkClass" Relationship="WWPlatform.Model.fk_class" FromRole="History" ToRole="AtkClass" />
+        </EntityType>
+        <EntityType Name="AtkClass">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" />
+          <Property Type="String" Name="Title" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="Hot" Nullable="false" />
+          <NavigationProperty Name="Histories" Relationship="WWPlatform.Model.fk_class" FromRole="AtkClass" ToRole="History" />
+        </EntityType>
+        <EntityType Name="Essay" BaseType="WWPlatform.Model.Article" />
+        <EntityType Name="Discovery" BaseType="WWPlatform.Model.Article" />
+        <EntityType Name="Digest" BaseType="WWPlatform.Model.Article" />
+        <Association Name="fk_class">
+          <End Type="WWPlatform.Model.History" Role="History" Multiplicity="*" />
+          <End Type="WWPlatform.Model.AtkClass" Role="AtkClass" Multiplicity="1" />
+        </Association>
+        <EntityType Name="Content">
+          <Key>
+            <PropertyRef Name="Idkey" />
+          </Key>
+          <Property Type="Int32" Name="Idkey" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Text" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Int16" Name="PageIndex" Nullable="false" />
+          <NavigationProperty Name="Article" Relationship="WWPlatform.Model.fk_article" FromRole="content" ToRole="Article" />
+        </EntityType>
+        <Association Name="fk_article">
+          <End Type="WWPlatform.Model.Article" Role="Article" Multiplicity="1" />
+          <End Type="WWPlatform.Model.Content" Role="content" Multiplicity="*" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WWPlatformModelStoreContainer" CdmEntityContainer="WWPlatformEntities">
+          <EntitySetMapping Name="catalogs">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Catalog">
+              <MappingFragment StoreEntitySet="catalog">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Order" ColumnName="order"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="subtypes">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Subtype">
+              <MappingFragment StoreEntitySet="subtype">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Hot" ColumnName="hot"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dynasties">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Dynasty">
+              <MappingFragment StoreEntitySet="dynasty">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Hot" ColumnName="hot"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="features">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Feature">
+              <MappingFragment StoreEntitySet="feature">
+                <ScalarProperty Name="Top" ColumnName="top" />
+                <ScalarProperty Name="Hot" ColumnName="hot" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Brief" ColumnName="brief" />
+                <ScalarProperty Name="Cover" ColumnName="cover"/>
+                <ScalarProperty Name="AsSlide" ColumnName="asslide"/>
+                <ScalarProperty Name="HDImage" ColumnName="hdimage"/>
+                <ScalarProperty Name="Notes" ColumnName="notes"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="lectuers">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Lectuer">
+              <MappingFragment StoreEntitySet="lectuer">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Name" ColumnName="name" />
+                <ScalarProperty Name="Brief" ColumnName="brief" />
+                <ScalarProperty Name="Photo" ColumnName="photo" />
+                <ScalarProperty Name="Hot" ColumnName="hot"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webcasts">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Webcast">
+              <MappingFragment StoreEntitySet="webcast">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Visit" ColumnName="visit" />
+                <ScalarProperty Name="Aired" ColumnName="aired"/>
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Excerpt" ColumnName="excerpt" />
+                <ScalarProperty Name="Tags" ColumnName="tags" />
+                <ScalarProperty Name="Image" ColumnName="image"/>
+                <ScalarProperty Name="Coreid" ColumnName="coreid"/>
+                <ScalarProperty Name="Videoid" ColumnName="videoid"/>
+                <ScalarProperty Name="RefUrl" ColumnName="refurl"/>
+                <ScalarProperty Name="Score" ColumnName="score"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="offerings">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Offering">
+              <MappingFragment StoreEntitySet="offering">
+                <ScalarProperty Name="Idkey" ColumnName="idkey"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name ="siteusers">
+            <EntityTypeMapping TypeName="WWPlatform.Model.SiteUser">
+              <MappingFragment StoreEntitySet="siteuser">
+                <ScalarProperty Name ="Idkey" ColumnName ="idkey"/>
+                <ScalarProperty Name ="Nickname" ColumnName ="nickname"/>
+                <ScalarProperty Name ="FigureUrl" ColumnName ="figureurl"/>
+                <ScalarProperty Name ="Openid" ColumnName ="openid"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hinttags">
+            <EntityTypeMapping TypeName="WWPlatform.Model.HintTag">
+              <MappingFragment StoreEntitySet="hinttag">
+                <ScalarProperty Name="Pinyin" ColumnName="pinyin" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey"/>
+                <ScalarProperty Name="Title" ColumnName="title"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="scripts">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Script">
+              <MappingFragment StoreEntitySet="script">
+                <ScalarProperty Name="Idkey" ColumnName="idkey"/>
+                <ScalarProperty Name="Text" ColumnName="text"/>
+                <ScalarProperty Name="Compiled" ColumnName="compiled"/>
+                <ScalarProperty Name="Visit" ColumnName="visit"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="fk_catalog" TypeName="WWPlatform.Model.fk_catalog" StoreEntitySet="feature">
+            <EndProperty Name="catalog">
+              <ScalarProperty Name="Idkey" ColumnName="catalogid" />
+            </EndProperty>
+            <EndProperty Name="feature">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_script" TypeName="WWPlatform.Model.fk_script" StoreEntitySet="webcast">
+            <EndProperty Name="script">
+              <ScalarProperty Name="Idkey" ColumnName="scriptid" />
+            </EndProperty>
+            <EndProperty Name="webcast">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <Condition ColumnName="scriptid" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_feature" TypeName="WWPlatform.Model.fk_feature" StoreEntitySet="webcast">
+            <EndProperty Name="feature">
+              <ScalarProperty Name="Idkey" ColumnName="featureid" />
+            </EndProperty>
+            <EndProperty Name="webcast">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_lectuer" TypeName="WWPlatform.Model.fk_lectuer" StoreEntitySet="feature">
+            <EndProperty Name="lectuer">
+              <ScalarProperty Name="Idkey" ColumnName="lectuerid" />
+            </EndProperty>
+            <EndProperty Name="feature">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_dynasty" TypeName="WWPlatform.Model.fk_dynasty" StoreEntitySet="feature">
+            <EndProperty Name="dynasty">
+              <ScalarProperty Name="Idkey" ColumnName="dynastyid" />
+            </EndProperty>
+            <EndProperty Name="feature">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_offering_feature" TypeName="WWPlatform.Model.fk_offering_feature" StoreEntitySet="offering">
+            <EndProperty Name="feature">
+              <ScalarProperty Name="Idkey" ColumnName="featureid" />
+            </EndProperty>
+            <EndProperty Name="offering">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_offering_subtype" TypeName="WWPlatform.Model.fk_offering_subtype" StoreEntitySet="offering">
+            <EndProperty Name="subtype">
+              <ScalarProperty Name="Idkey" ColumnName="subtypeid" />
+            </EndProperty>
+            <EndProperty Name="offering">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="books">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Book">
+              <MappingFragment StoreEntitySet="book">
+                <ScalarProperty Name="Top" ColumnName="top" />
+                <ScalarProperty Name="Url" ColumnName="url" />
+                <ScalarProperty Name="Author" ColumnName="author" />
+                <ScalarProperty Name="Brief" ColumnName="brief" />
+                <ScalarProperty Name="Cover1" ColumnName="cover1" />
+                <ScalarProperty Name="Cover2" ColumnName="cover2" />
+                <ScalarProperty Name="Cover3" ColumnName="cover3" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Published" ColumnName="published"/> 
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="chapters">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Chapter">
+              <MappingFragment StoreEntitySet="chapter">
+                <ScalarProperty Name="Text" ColumnName="text" />
+                <ScalarProperty Name="Seq" ColumnName="seq" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sections">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Section">
+              <MappingFragment StoreEntitySet="section">
+                <ScalarProperty Name="Seq" ColumnName="seq" />
+                <ScalarProperty Name="Brief" ColumnName="brief" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="fk_chapter_book" TypeName="WWPlatform.Model.fk_chapter_book" StoreEntitySet="chapter">
+            <EndProperty Name="chapter">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <EndProperty Name="book">
+              <ScalarProperty Name="Idkey" ColumnName="bookid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_section_book" TypeName="WWPlatform.Model.fk_section_book" StoreEntitySet="section">
+            <EndProperty Name="section">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <EndProperty Name="book">
+              <ScalarProperty Name="Idkey" ColumnName="bookid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_chapter_section" TypeName="WWPlatform.Model.fk_chapter_section" StoreEntitySet="chapter">
+            <EndProperty Name="chapter">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <EndProperty Name="section">
+              <ScalarProperty Name="Idkey" ColumnName="sectionid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Articles">
+            <EntityTypeMapping TypeName="IsTypeOf(WWPlatform.Model.Article)">
+              <MappingFragment StoreEntitySet="article">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <ScalarProperty Name="Visit" ColumnName="visit" />
+                <ScalarProperty Name="Issued" ColumnName="issued" />
+                <ScalarProperty Name="Source" ColumnName="source" />
+                <ScalarProperty Name="Author" ColumnName="author" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Excerpt" ColumnName="excerpt"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WWPlatform.Model.History)">
+              <MappingFragment StoreEntitySet="history">
+                <ScalarProperty Name="Idkey" ColumnName="idkey"/>
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WWPlatform.Model.Digest)">
+              <MappingFragment StoreEntitySet="article">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <Condition ColumnName="discriminator" Value="3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WWPlatform.Model.Discovery)">
+              <MappingFragment StoreEntitySet="article">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <Condition ColumnName="discriminator" Value="2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+            <EntityTypeMapping TypeName="IsTypeOf(WWPlatform.Model.Essay)">
+              <MappingFragment StoreEntitySet="article">
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+                <Condition ColumnName="discriminator" Value="4" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AtkClasses">
+            <EntityTypeMapping TypeName="WWPlatform.Model.AtkClass">
+              <MappingFragment StoreEntitySet="class">
+                <ScalarProperty Name="Hot" ColumnName="hot" />
+                <ScalarProperty Name="Title" ColumnName="title" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contents">
+            <EntityTypeMapping TypeName="WWPlatform.Model.Content">
+              <MappingFragment StoreEntitySet="content">
+                <ScalarProperty Name="PageIndex" ColumnName="idx" />
+                <ScalarProperty Name="Text" ColumnName="text" />
+                <ScalarProperty Name="Idkey" ColumnName="idkey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="fk_article" TypeName="WWPlatform.Model.fk_article" StoreEntitySet="content">
+            <EndProperty Name="content">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <EndProperty Name="Article">
+              <ScalarProperty Name="Idkey" ColumnName="atkid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="fk_class" TypeName="WWPlatform.Model.fk_class" StoreEntitySet="history">
+            <EndProperty Name="History">
+              <ScalarProperty Name="Idkey" ColumnName="idkey" />
+            </EndProperty>
+            <EndProperty Name="AtkClass">
+              <ScalarProperty Name="Idkey" ColumnName="classid" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="WWPlatform" ZoomLevel="93">
+        <EntityTypeShape EntityType="WWPlatform.Model.Feature" Width="1.5" PointX="3" PointY="4.125" Height="3.3071704101562496" IsExpanded="true" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Lectuer" Width="1.5" PointX="0.75" PointY="1.375" Height="2.1610522460937496" IsExpanded="true" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Webcast" Width="1.5" PointX="5.25" PointY="3.875" Height="3.4981901041666656" IsExpanded="true" />
+        <AssociationConnector Association="WWPlatform.Model.fk_feature" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.7490950520833328" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="5.7490950520833319" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="5.7490950520833328" />
+          <ConnectorPoint PointX="5.25" PointY="5.7490950520833328" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_lectuer" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="3.5360522460937496" />
+          <ConnectorPoint PointX="2.625" PointY="3.9110522460937496" />
+          <ConnectorPoint PointX="2.625" PointY="3.75" />
+          <ConnectorPoint PointX="3" PointY="4.125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Catalog" Width="1.5" PointX="0.75" PointY="7.25" Height="1.7790128580729174" />
+        <AssociationConnector Association="WWPlatform.Model.fk_catalog">
+          <ConnectorPoint PointX="2.25" PointY="7.9070272516687012" />
+          <ConnectorPoint PointX="4.3749975" PointY="7.9070272516687012" />
+          <ConnectorPoint PointX="4.3749975" PointY="7.43217041015625" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_script">
+          <ConnectorPoint PointX="4.5" PointY="2.7200325520833317" />
+          <ConnectorPoint PointX="4.875" PointY="3.0950325520833317" />
+          <ConnectorPoint PointX="4.875" PointY="4.7807955260416657" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="4.7807955260416648" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="4.7807955260416657" />
+          <ConnectorPoint PointX="5.25" PointY="4.7807955260416657" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_dynasty">
+          <ConnectorPoint PointX="2.25" PointY="5.79399658203125" />
+          <ConnectorPoint PointX="3" PointY="5.79399658203125" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_offering_subtype">
+          <ConnectorPoint PointX="7.5" PointY="9.6861067708333337" />
+          <ConnectorPoint PointX="8.429689375" PointY="9.6861067708333337" />
+          <ConnectorPoint PointX="8.429689375" PointY="5.95359375" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_offering_feature">
+          <ConnectorPoint PointX="4.5" PointY="7.2553515624999987" />
+          <ConnectorPoint PointX="8.125" PointY="7.2553515624999987" />
+          <ConnectorPoint PointX="8.125" PointY="5.95359375" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Dynasty" Width="1.5" PointX="0.75" PointY="5" Height="1.5879931640624996" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Offering" Width="1.5" PointX="7.375" PointY="4.5" Height="1.4535937499999996" />
+        <EntityTypeShape EntityType="WWPlatform.Model.HintTag" Width="1.5" PointX="2.75" PointY="8.375" Height="1.3969734700520853" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Script" Width="1.5" PointX="3" PointY="0.75" Height="1.9700325520833317" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Subtype" Width="1.5" PointX="6" PointY="8.875" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="WWPlatform.Model.SiteUser" Width="1.5" PointX="5.25" PointY="1.25" Height="1.7790128580729174" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Book" Width="1.5" PointX="0.5" PointY="9.5" Height="2.9711718749999978" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Chapter" Width="1.5" PointX="4.375" PointY="9.875" Height="1.9594531249999996" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Section" Width="1.5" PointX="0.625" PointY="13.5" Height="1.9700325520833388" />
+        <AssociationConnector Association="WWPlatform.Model.fk_chapter_book" >
+          <ConnectorPoint PointX="2" PointY="10.8547265625" />
+          <ConnectorPoint PointX="4.375" PointY="10.8547265625" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_section_book" >
+          <ConnectorPoint PointX="1.3125" PointY="12.471171874999998" />
+          <ConnectorPoint PointX="1.3125" PointY="13.5" />
+        </AssociationConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_chapter_section" >
+          <ConnectorPoint PointX="2.125" PointY="14.4797265625" />
+          <ConnectorPoint PointX="5.125" PointY="14.4797265625" />
+          <ConnectorPoint PointX="5.125" PointY="11.834453125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Article" Width="1.5" PointX="9" PointY="8.25" Height="2.1280729166666656" />
+        <EntityTypeShape EntityType="WWPlatform.Model.History" Width="1.5" PointX="11.375" PointY="8.875" Height="1.1163541666666657" IsExpanded="true" />
+        <InheritanceConnector EntityType="WWPlatform.Model.History" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="9.4331770833333337" />
+          <ConnectorPoint PointX="11.375" PointY="9.4331770833333337" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.AtkClass" Width="1.5" PointX="13.75" PointY="8.625" Height="1.6222135416666657" />
+        <EntityTypeShape EntityType="WWPlatform.Model.Essay" Width="1.5" PointX="12.25" PointY="11.375" Height="0.94773437500000313" />
+        <InheritanceConnector EntityType="WWPlatform.Model.Essay" >
+          <ConnectorPoint PointX="9.75" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="9.75" PointY="11" />
+          <ConnectorPoint PointX="13" PointY="11" />
+          <ConnectorPoint PointX="13" PointY="11.375" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Discovery" Width="1.5" PointX="9.875" PointY="11.375" Height="0.94773437500000313" />
+        <InheritanceConnector EntityType="WWPlatform.Model.Discovery" >
+          <ConnectorPoint PointX="9.75" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="9.75" PointY="11" />
+          <ConnectorPoint PointX="10.625" PointY="11" />
+          <ConnectorPoint PointX="10.625" PointY="11.375" />
+        </InheritanceConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Digest" Width="1.5" PointX="6.875" PointY="11.375" Height="0.94773437500000313" />
+        <InheritanceConnector EntityType="WWPlatform.Model.Digest" >
+          <ConnectorPoint PointX="9.75" PointY="10.546692708333332" />
+          <ConnectorPoint PointX="9.75" PointY="11" />
+          <ConnectorPoint PointX="7.625" PointY="11" />
+          <ConnectorPoint PointX="7.625" PointY="11.375" />
+        </InheritanceConnector>
+        <AssociationConnector Association="WWPlatform.Model.fk_class">
+          <ConnectorPoint PointX="12.875" PointY="9.4331770833333337" />
+          <ConnectorPoint PointX="13.75" PointY="9.4331770833333337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="WWPlatform.Model.Content" Width="1.5" PointX="11.25" PointY="5.625" Height="1.6222135416666674" />
+        <AssociationConnector Association="WWPlatform.Model.fk_article" >
+          <ConnectorPoint PointX="9.75" PointY="8.25" />
+          <ConnectorPoint PointX="9.75" PointY="6.4361067708333337" />
+          <ConnectorPoint PointX="11.25" PointY="6.4361067708333337" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

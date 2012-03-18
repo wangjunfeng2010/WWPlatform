@@ -1,0 +1,127 @@
+﻿.mod_left {
+    margin: 15px 0 0 20px;
+}
+.mod_left .mod_cover {
+    background: url("images/cover_bg.gif") repeat scroll 0 0 transparent;
+    height: 226px;
+    padding: 15px;
+    margin-right:30px;
+}
+.mod_left .mod_recommend{
+    border:1px solid #dedede;
+    margin:30px 30px 0 0;
+}
+.mod_left .mod_recommend .mod_tit{
+    background: url("http://mat1.qq.com/book/images/model/black/titlebg2.gif") no-repeat scroll left center #959595;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    height: 23px;
+    line-height: 23px;
+    padding:0 0 0 33px;
+    width: 155px;
+}
+.mod_left, .mod_right {
+    color: #000000;
+    margin-bottom: 40px;
+}
+.mod_general .mod_tit {
+    text-align: center;
+    border-bottom: 1px solid #dedede;
+    font-size: 20px;
+    line-height: 38px;
+}
+.mod_general .mod_brief {
+    border-bottom: 1px solid #dedede;
+    padding: 16px 0;
+}
+.mod_general .mod_brief p {
+    line-height: 24px;
+    text-indent: 2em;
+    letter-spacing: 1px;
+}
+.mod_general .mod_copyright {
+    color: #3b3b3b;
+    height: 30px;
+}
+.mod_general .mod_copyright ul li {
+    float: left;
+    width: 33%;
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    border-bottom: 1px dashed #dedede;
+}
+.mod_sections{
+    margin-top:40px;
+    overflow:auto;
+}
+.mod_section {
+    margin-top: 30px;
+}
+.mod_section .tit {
+    background: url("images/sec_bg.gif") repeat scroll 0 0 transparent;
+    height: 28px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 14px;
+}
+.mod_section .tit span {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 24px;
+    padding: 0 20px 0 6px;
+}
+.mod_section .brief {
+    text-indent: 2em;
+    line-height: 24px;
+    letter-spacing: 1px;
+}
+.mod_chapters {
+    background: url("images/chap_bg.gif") repeat-y scroll 0 0 transparent;
+}
+.mod_chapters .t {
+    background: url("images/t.gif") no-repeat scroll 0 0 transparent;
+    clear: both;
+    height: 20px;
+}
+.mod_chapters .b {
+    background: url("images/b.gif") no-repeat scroll 0 0 transparent;
+    clear: both;
+    height: 20px;
+}
+.mod_chapters ul li {
+    float: left;
+    width: 290px;
+    overflow: hidden;
+    background: url("http://mat1.qq.com/book/images/model/arrow.gif") no-repeat scroll 3px 12px transparent;
+    border-bottom: 1px dotted #999999;
+    padding: 5px 3px 5px 20px;
+    text-align: left;
+    line-height: 24px;
+    height: 24px;
+    margin: 0 15px;
+}
+.mod_path {
+    color: #FFFFFF;
+    height: 31px;
+    line-height: 31px;
+    margin: 10px 0 0 0;
+    width: 100%;
+    background: url("http://mat1.qq.com/book/images/model/black/info_bg3.gif") repeat-x scroll 0 0 transparent;
+    border-color: #A0A0A1 #A0A0A1 -moz-use-text-color;
+    border-style: solid solid none;
+    border-width: 1px 1px 0;
+}
+.mod_path div {
+    background: url("http://mat1.qq.com/book/images/model/black/info_bg1.gif") no-repeat scroll left center transparent;
+    padding-left: 34px;
+}
+.mod_path a{
+    color:#ffffff;
+}
+.mod_path a:hover{
+    color:#ffffff;
+}

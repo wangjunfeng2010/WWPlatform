@@ -1,0 +1,50 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Core.Utilities;
+@model IEnumerable<WWPlatform.Model.ATK.Article>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "百家讲坛 文化中国 专业的文化传媒网站";
+}
+@section res{
+    <meta name="keywords" content="百家讲坛 文化中国" />
+    <meta name="description" content="百家讲坛 文化中国 专业的文化传媒网站" />
+    <link href="@Url.StyleSheet("atk/list.css")" rel="Stylesheet" type="text/css" />
+}
+@section head{
+    @Html.Partial("Header")
+}
+<div class="container_16 clearfix">
+    <div class="grid_12">
+        <div class="mod_list">
+            @foreach (var article in Model.Take(2))
+            {
+                <dl>
+                    <dt><a href="@Url.Action(article)">@article.Title</a> <span>@article.Issued.ToString("yyyy-MM-dd")</span>
+                    </dt>
+                    <dd>@article.Excerpt</dd>
+                </dl>
+            }
+            <ul>
+                @foreach (var item in Model.Skip(2).Select((item, idx) => new { Article = item, Index = idx + 1 }))
+                {
+                    var article = item.Article;
+                    if (item.Index % 5 == 0)
+                    { 
+                        <li class="grp">
+                            <span>@article.Issued.ToString("yyyy-MM-dd")</span> <a href="@Url.Action(article)">@article.Title</a>
+                        </li>
+                    }
+                    else 
+                    { 
+                        <li>
+                            <span>@article.Issued.ToString("yyyy-MM-dd")</span> <a href="@Url.Action(article)">@article.Title</a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        @Html.PagingFor(Model as WWPlatform.Core.Paging.IPageable)
+    </div>
+    <div class="grid_4">
+    </div>
+</div>

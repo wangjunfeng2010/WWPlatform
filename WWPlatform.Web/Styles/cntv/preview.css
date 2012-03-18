@@ -1,0 +1,382 @@
+﻿.mod_list_play li {
+    height: 17px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.mod_list_play li p {
+    padding-left: 24px;
+}
+.mod_list_play .icon_play {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.mod_list_play li span.mod_time {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_tab {
+    overflow: hidden;
+    width: 100%;
+}
+.mod_tab ul {
+    border-bottom: 1px solid #D7D7D7;
+    height: 29px;
+}
+.mod_tab li {
+    float: left;
+    height: 28px;
+    width: 80px;
+}
+.mod_tab li a {
+    border-right: 1px solid #D7D7D7;
+    display: block;
+    height: 18px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+.mod_tab li.current a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #D7D7D7 #D7D7D7 #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    color: #2D2D2D;
+    cursor: default;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    position: absolute;
+    width: 78px;
+}
+.mod_tab li.current a:hover {
+    text-decoration: none;
+}
+.mod_sub_tab a {
+    display: inline-block;
+    padding: 0 6px;
+}
+.mod_sub_tab .current {
+    background: none repeat scroll 0 0 #056EA1;
+    color: #FFFFFF;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.mod_sub_tab .current:hover {
+    text-decoration: none;
+}
+.mod_poster, .mod_poster_v {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    /*
+    height: 82px;
+    width: 145px;
+    */
+}
+.mod_poster_v {
+    /*
+    height: 82px;
+    width: 145px;
+    */
+}
+.mod_poster img {
+    height: 82px;
+    width: 145px;
+}
+.mod_poster_v img {
+    height: 82px;
+    width: 145px;
+}
+
+.mod_poster .mod_special, .mod_poster .mod_version, .mod_poster_v .mod_version {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Arial;
+    height: 16px;
+    left: -5px;
+    line-height: 17px;
+    overflow: hidden;
+    padding-right: 5px;
+    position: absolute;
+    text-align: right;
+    width: 100%;
+    z-index: 10;
+}
+.mod_poster .mod_special {
+    color: #FFFFFF;
+    font-size: 9px;
+    height: 14px;
+    line-height: 15px;
+}
+.mod_poster .mod_mask, .mod_poster_v .mod_mask {
+    display: none;
+}
+.mod_poster:hover, .mod_poster_v:hover {
+    border: medium none;
+    text-decoration: none;
+}
+.mod_poster:hover .mod_mask, .show_bt:hover .mod_mask {
+    background: url("images/bg.png") no-repeat scroll -36px -275px transparent;
+    bottom: 6px;
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    left: 6px;
+    overflow: hidden;
+    position: absolute;
+    width: 14px;
+    z-index: 30;
+}
+.no_bt:hover .mod_mask {
+    display: none;
+}
+.short_video li h6 {
+    height: 36px;
+    text-align: left;
+    white-space: normal;
+}
+.quotes_symbols_left, .quotes_symbols_right {
+    color: #9E0E0E;
+    display: inline-block;
+    font-family: Arial,Consolas;
+    font-size: 36px;
+    height: 16px;
+    line-height: 38px;
+    overflow: hidden;
+    vertical-align: -1px;
+}
+.quotes_symbols_left {
+    margin-left: -2px;
+}
+.quotes_symbols_right {
+    margin-right: -2px;
+}
+.mod_desc {
+    padding-bottom: 20px;
+    position: relative;
+    z-index:-1;
+}
+.mod_desc .mod_cont {
+    line-height: 24px;
+}
+.mod_desc.open .mod_cont {
+    height: auto;
+    overflow: visible;
+}
+.mod_desc.open .mod_act {
+    background-position: 55px 0;
+}
+.mod_desc .mod_act a {
+    display: block;
+    width: 70px;
+}
+.mod_desc .link_close {
+    display: none;
+}
+.mod_desc .link_open {
+    display: block;
+}
+.mod_desc.open .link_close {
+    display: block !important;
+}
+.mod_desc.open .link_open {
+    display: none !important;
+}
+
+.mod_tit_wrap {
+    position: relative;
+}
+.s_page {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    right: 48px;
+    top: 25px;
+}
+.s_page .mod_pagenav_count2 {
+    display: inline-block;
+    line-height: 22px;
+    padding-right: 5px;
+}
+.mod_info {
+    margin: 20px 0 0;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.mod_info .mod_txt{
+    padding-right:10px;
+}
+.mod_info .mod_txt h1 {
+    color: #2D2D2D;
+    font-size: 18px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.mod_info .mod_txt .mod_cover{
+    float:left;
+}
+.mod_info .mod_txt .mod_cover p
+{
+    padding-left:20px;
+}
+.mod_info .mod_txt .mod_cover img{
+    margin-right:25px;
+    height:162px;
+    border:1px solid #525252;
+}
+.mod_review {
+    margin-bottom: 5px;
+    overflow:hidden;
+}
+.mod_info .mod_txt .details_list {
+    overflow: hidden;
+}
+.mod_info .mod_txt .details_list li {
+    float: left;
+    line-height: 30px;
+    width: 50%;
+}
+.mod_info .mod_txt .details_list li .detail_title {
+    float: left;
+    overflow: hidden;
+    width: 36px;
+}
+.mod_info .mod_txt .details_list li .detail_content {
+    float: left;
+    width: 384px;
+    word-wrap: break-word;
+}
+.mod_info .mod_txt .details_list li a {
+    margin-right: 5px;
+}
+.mod_info .mod_txt .details_list li .detail_content a {
+    float: left;
+    white-space: nowrap;
+}
+.mod_guess_video_list h3{
+    color: #2D2D2D;
+    font-size: 14px;
+    margin: 20px 0;
+    text-align: center;
+}
+.mod_guess_video_list li {
+    margin: 0 auto 20px;
+    width: 98px;
+}
+.mod_guess_video_list li .mod_poster {
+    height: 134px;
+    width: 98px;
+}
+.mod_guess_video_list li img{
+    height: 120px;
+    width: 94px;
+    border:1px solid #c0c0c0;
+}
+.mod_guess_video_list li h6{
+    font-weight: normal;
+    margin-top: 2px;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+}
+.mod_guess_video_list li p {
+    text-align: center;
+    width: 100%;
+}
+.mod_video_list .mod_cont {
+    padding-top: 30px;
+}
+.mod_video_list .mod_cont ul li:hover{
+    background-color:#f1f1f1;
+}
+.mod_video_list .mod_cont li {
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 0 0 20px 0;
+    position: relative;
+}
+.mod_video_list .mod_cont li .mod_pic {
+    float: left;
+    overflow: hidden;
+    text-align: center;
+    width: 145px;
+    margin-right:25px;
+}
+.mod_video_list .mod_cont li .mod_pic .mod_poster, .mod_video_list .mod_cont li .mod_pic .mod_poster_v {
+    margin: 0 auto;
+}
+.mod_video_list .mod_cont li dl {
+    overflow: hidden;
+}
+.mod_video_list .mod_cont li dt {
+    font-size: 14px;
+    font-weight: bold;
+    width: 420px;
+    margin-bottom:5px;
+}
+.mod_video_list .mod_cont li p{
+    line-height:24px;
+}
+.mod_video_list .mod_cont li dt span {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 20px;
+}
+.mod_video_list .mod_cont li dd {
+    float: left;
+    line-height: 24px;
+    width: 33%;
+}
+.mod_video_list .mod_cont li dd.mod_artist {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 350px;
+}
+.mod_video_list .mod_cont li dd a {
+    margin-right: 5px;
+}
+.mod_video_list .mod_cont li .mod_desc {
+    line-height: 22px;
+}
+.mod_video_list .mod_cont li .mod_grade_score {
+    position: absolute;
+    right: 5px;
+    top: -15px;
+}
+.mod_video_list .mod_cont li .mod_grade_score strong {
+    font-family: "Times New Roman";
+    font-size: 40px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+.mod_video_list .mod_cont li .mod_grade_score strong em {
+    font-size: 20px;
+    font-style: normal;
+}
+.mod_video_list .mod_cont li .no_score {
+    top: 5px;
+}
+.mod_video_list .mod_cont li .mod_links{
+    overflow:hidden;
+}
+.mod_video_list .mod_cont li .mod_links li{
+    float: left;
+    line-height: 30px;
+    padding:0;
+    margin:0 20px 0 0;
+}

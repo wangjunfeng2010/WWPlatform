@@ -1,0 +1,73 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Model;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.ATK.ContentViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = string.Format("{0} 百家讲坛 文化中国 专业的文化传媒网站", Model.Article.Title);   
+    <link href="@Url.StyleSheet("atk/browse.css")" rel="Stylesheet" type="text/css" />
+}
+@section res{
+    <meta name="keywords" content="@Model.Article.Title 百家讲坛 文化中国" />
+    <meta name="description" content="@Model.Article.Title 百家讲坛 文化中国 专业的文化传媒网站" />
+}
+@section head{
+    @Html.Partial("Header")
+}
+<div class="container_16 clearfix">
+    <div class="grid_16">
+        <h2 class="mod_tit">@Html.Raw(Model.Article.Title)</h2>
+        <div class="mod_info">
+            <ul>
+                <li>作者：@Model.Article.Author</li>
+                <li>来源：@Model.Article.Source</li>
+                <li>发表时间：@Model.Article.Issued.ToString("yyyy年M月d日")</li>
+                <li>点击数：@Model.Article.Visit</li>
+                <li>（字体：小 中 大）</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container_16 clearfix">
+    <div class="grid_12">
+        <div class="mod_cont">
+            @Html.Raw(Model.Text)
+        </div>
+        @Html.PagingFor(Model)
+    </div>
+    <div class="grid_4">
+        <div class="mod_rank bor">
+            <h2 class="mod_tit_box">
+                <span>本周阅读排行</span>
+            </h2>
+            <div class="mod_list">
+                <ul>
+                    @foreach (var rank in Model.Ranks)
+                    {
+                        <li><a href="@Url.Action(rank)">@rank.Title</a> </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="mod_recommend bor">
+            <h2 class="mod_tit_box">
+                <span>最新推荐</span>
+            </h2>
+            <div class="mod_list">
+                <ul>
+                    @foreach (var rec in Model.Recommends)
+                    {
+                        <li><a href="@Url.Action(rec)">@rec.Title</a> </li>
+                    }
+                </ul>
+            </div>
+        </div>
+        <div class="mod_ulike bor">
+            <h2 class="mod_tit_box">
+                <span>您可能也喜欢</span>
+            </h2>
+            <div class="mod_list">
+            </div>
+        </div>
+    </div>
+</div>

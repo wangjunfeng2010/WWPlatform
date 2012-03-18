@@ -1,0 +1,709 @@
+/*在首页中使用的css,在首页单独被引用*/
+
+@charset "utf-8";
+
+/**focus开始**/
+/*
+* 推荐专题轮播
+*/
+#slide{
+	width:633px;
+	height:275px;
+	padding:0;
+	position:relative;
+	overflow:hidden;
+	float:left;
+	margin-top:8px;
+}
+#slide_footbar{
+	z-index:5; 
+	position:absolute;
+	bottom:0;
+	height:30px; 
+	width:100%; 
+	background-color:rgba(0,0,0,0.5); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#32000000,endColorstr=#32000000);
+}
+#slide_photo{
+	width:100%;
+	height:100%;
+	position:absolute;
+	cursor:pointer;
+}
+#slide_photo a{
+	position:absolute;
+	display:block;
+	margin:0;
+	border:0;
+	top:0;
+	left:0;
+	z-index:1;
+}
+#slide_footbar .slide-bt{
+	font-size:0;
+	float:right;
+	height:10px;
+	width:10px; 
+	margin:10px 10px 0 0; 
+	background-color:#D2D3D4;
+	_display:inline;
+}
+#slide_footbar .slide-bt.bt-on{ 
+	background-color:#B5110F;
+}
+#slide_headbar{
+	z-index:10; 
+	position:absolute;
+	top:0;
+	height:26px; 
+	width:100%; 
+	background-color:rgba(0,0,0,0.5); 
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#32000000,endColorstr=#32000000); 
+	font:normal 14px "宋体"; 
+	color:#fff; 
+	line-height:26px; 
+	text-indent:10px;
+}
+
+.update{
+    width:275px;
+    height:275px;
+    float:right;
+}
+
+.update li{
+	float:left; 
+	width:275px; 
+	overflow:hidden; 
+	_display:inline; 
+	padding: 8px 0;
+	position:relative;
+	border-bottom: 1px solid #E5E7E8;
+}
+
+.update li a{
+    font-size:14px;
+    color: #333;
+	text-decoration: none;
+	line-height: 24px;
+}
+.update li a img {
+	float: left;
+	font-size:12px;
+	margin-right: 10px;
+}
+.mod_tags {
+    margin-top: 10px;
+}
+.mod_tags .mod_cont {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border: 1px solid #E3E3E3;
+    border-left:none;
+    height: 33px;
+    overflow: hidden;
+    padding: 0 50px 0 0;
+    position: relative;
+}
+.mod_tags dt {
+    background: url("../images/bg.png") no-repeat scroll -27px -295px transparent;
+    color: #FFFFFF;
+    float: left;
+    font-weight: bold;
+    line-height: 33px;
+    margin-right: 10px;
+    padding-left: 10px;
+    width: 65px;
+}
+.mod_tags dd {
+    float: left;
+    height: 16px;
+    line-height: 16px;
+    margin: 8px 10px 0 0;
+    overflow: hidden;
+}
+.mod_tags dd.rbor {
+    border-right: 1px solid #D0D0D0;
+}
+.mod_tags dd a {
+    white-space: nowrap;
+}
+.mod_tags p {
+    line-height: 33px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 40px;
+}
+.icon_play {
+    background: url("../images/bg.png") no-repeat scroll 0 -275px transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 17px;
+    line-height: 999px;
+    overflow: hidden;
+    width: 17px;
+}
+.icon_play:hover {
+    background-position: -18px -275px;
+}
+.mod_list_play li {
+    height: 17px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.mod_list_play li p {
+    padding-left: 24px;
+}
+.mod_list_play .icon_play {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.mod_list_play li span.mod_time {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_list_dot li {
+    background: url("../images/bg.png") no-repeat scroll -95px -100px transparent;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 0 0 12px;
+    position: relative;
+}
+.mod_list_dot li p {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_list_dot li p a {
+    margin-right: 10px;
+}
+.mod_list_dot li span.mod_time {
+    color: #A5A5A5;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_list_dot_gray li {
+    background: url("../images/bg.png") no-repeat scroll -95px -120px transparent;
+    height: 22px;
+    line-height: 22px;
+    padding: 0 0 0 12px;
+    position: relative;
+}
+.mod_list_dot_gray li p {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_list_dot_gray li p a {
+    color: #787878;
+    margin-right: 10px;
+}
+.mod_list_dot_gray li span.mod_time {
+    color: #A5A5A5;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_poster, .mod_poster_v {
+    overflow: hidden;
+    position: relative;
+    display: block;
+    /*
+    height: 82px;
+    width: 145px;
+    */
+}
+/*
+.mod_poster_v {
+    height: 120px;
+    width: 100px;
+}
+*/
+.mod_poster img {
+    height: 82px;
+    width: 145px;
+}
+.mod_poster_v img {
+    height: 140px;
+    width: 100px;
+}
+.mod_poster .mod_special, .mod_poster .mod_version, .mod_poster_v .mod_version {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    color: #ffffff;
+    cursor: pointer;
+    font-family: Arial;
+    height: 16px;
+    left: 0;
+    line-height: 17px;
+    overflow: hidden;
+    padding-right: 5px;
+    left:-5px;
+    position: absolute;
+    text-align: right;
+    width: 100%;
+    z-index: 10;
+}
+.mod_poster_v .mod_version {
+    width: 95px;
+}
+.mod_poster .mod_special {
+    color: #FFFFFF;
+    font-size: 9px;
+    height: 14px;
+    line-height: 15px;
+}
+.mod_poster .mod_mask, .mod_poster_v .mod_mask {
+    display: none;
+}
+.mod_poster:hover, .mod_poster_v:hover {
+    border: medium none;
+    text-decoration: none;
+}
+.mod_poster:hover .mod_mask, .show_bt:hover .mod_mask {
+    background: url("../images/bg.png") no-repeat scroll -36px -275px transparent;
+    bottom: 6px;
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    left: 6px;
+    overflow: hidden;
+    position: absolute;
+    width: 14px;
+    z-index: 30;
+}
+.no_bt:hover .mod_mask {
+    display: none;
+}
+.mod_list_pic, .mod_list_pic_v {
+    overflow: hidden;
+}
+.mod_list_pic li, .mod_list_pic_v li {
+    float: left;
+    margin: 0 20px 15px 0;
+    width: 145px;
+}
+.mod_list_pic_v li {
+    width: 100px;
+}
+.mod_list_pic li h6, .mod_list_pic_v li h6 {
+    overflow: hidden;
+    padding: 3px 0 0;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_list_pic li h6 a, .mod_list_pic_v li h6 a {
+    font-weight: normal;
+}
+.mod_list_pic li p, .mod_list_pic_v li p {
+    height: 18px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.short_video li h6 {
+    height: 36px;
+    text-align: left;
+    white-space: normal;
+}
+.mod_pic_tit {
+    overflow: hidden;
+    width: 280px;
+}
+.mod_pic_tit .mod_pic .mod_poster, .mod_pic_tit .mod_pic img {
+    height: 158px;
+    width: 280px;
+}
+.mod_pic_tit h4 {
+    overflow: hidden;
+    padding: 6px 0 2px;
+    text-align: center;
+    width: 100%;
+    font-weight: normal;
+}
+.mod_pic_tit h4 a {
+    font-size: 14px;
+}
+.mod_pic_tit p {
+    line-height: 20px;
+}
+.mod_pic_txt {
+    height: 82px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 155px;
+    position: relative;
+}
+.mod_pic_txt .mod_poster, .mod_pic_txt .mod_pic {
+    height: 82px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 145px;
+}
+.mod_script_list dl dt,.mod_script_list dl dd{
+    line-height:30px;
+}
+.mod_script_list dl dt p,.mod_script_list dl dt h1{
+    line-height:24px;
+    text-indent:2em;
+}
+.mod_pic_txt .mod_txt h6 {
+    margin-bottom: 5px;
+}
+.mod_topic .mod_cont {
+    position: relative;
+}
+.mod_topic .mod_pic_txt {
+    margin-bottom: 10px;
+}
+.mod_toplist {
+    overflow: hidden;
+    width: 280px;
+}
+.mod_toplist .mod_cont, .mod_toplist ol {
+    overflow: hidden;
+    zoom:1;
+    position: relative;
+}
+.mod_toplist ol {
+    margin-bottom: -1px;
+}
+.mod_toplist li {
+    border-bottom: 1px solid #E3E3E3;
+    float: left;
+    height: 29px;
+    line-height: 29px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.mod_toplist li em {
+    font-family: Arial;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 28px;
+    position: absolute;
+    text-align: center;
+    width: 20px;
+}
+.mod_toplist li h6 {
+    font-weight: normal;
+    overflow: hidden;
+    padding-left: 24px;
+    white-space: nowrap;
+    /*width: 230px;*/
+}
+.mod_toplist .no_score li h6 {
+    width: 260px;
+}
+.mod_toplist .big_score li h6 {
+    width: 200px;
+}
+.mod_toplist li h6 span {
+    margin-left: 5px;
+}
+.mod_toplist li strong {
+    font-weight: normal;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_toplist li.mod_first {
+    height: auto;
+    min-height: 30px;
+    overflow: visible;
+    padding-bottom: 10px;
+}
+.mod_toplist li.mod_first .mod_pic_txt {
+    height: 73px;
+    margin-bottom: 0;
+    padding-left: 135px;
+}
+.mod_toplist li.mod_first .mod_poster {
+    height: 70px;
+    padding-top: 3px;
+    width: 125px;
+}
+.mod_toplist li.mod_first .mod_poster img {
+    height: 70px;
+    width: 125px;
+}
+.mod_toplist li.mod_first em {
+    background: url("../images/bg.png") no-repeat scroll 0 -295px transparent;
+    font-size: 0;
+    height: 31px;
+    left: 4px;
+    line-height: 999px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 21px;
+}
+.mod_toplist li.mod_first .mod_txt {
+    height: 73px;
+    position: relative;
+}
+.mod_toplist li.mod_first .mod_txt h6 {
+    font-weight: bold;
+    line-height: 18px;
+    padding: 0;
+    white-space: normal;
+    width: auto;
+}
+.mod_toplist li.mod_first .mod_txt h6 span {
+    display: block;
+    font-weight: normal;
+    margin: 2px 0 0;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 120px;
+}
+.mod_toplist li.mod_first strong {
+    font-family: "Times New Roman";
+    font-size: 40px;
+    height: 30px;
+    overflow: hidden;
+    position: static;
+}
+.mod_toplist li.mod_first strong span {
+    font-size: 20px;
+}
+.mod_toplist li.no_pic {
+    border-bottom: 1px solid #E3E3E3;
+}
+.mod_toplist li.no_pic em {
+    left: 0;
+}
+.mod_toplist li.no_pic h6 {
+    font-weight: bold;
+    line-height: 18px;
+    padding-left: 32px;
+    white-space: normal;
+    /*width: 200px;*/
+}
+.mod_toplist .no_score li.no_pic h6 {
+    width: auto;
+}
+.mod_toplist .big_score li.mod_first strong {
+    font-family: Tahoma,"hiragino sans gb",Helvetica,Arial;
+    font-size: 16px;
+    height: 30px;
+}
+.mod_toplist .big_score li.mod_first strong span {
+    font-size: 12px;
+}
+.mod_toplist .big_score li.no_pic h6 {
+    width: 180px;
+}
+.mod_toplist .big_score li.no_pic strong {
+    font-family: Tahoma,"hiragino sans gb",Helvetica,Arial;
+    font-size: 14px;
+    font-weight: bold;
+    height: auto;
+    line-height: 18px;
+    top: 0;
+}
+.mod_toplist li.no_pic h6 span {
+    display: block;
+    font-weight: normal;
+    margin: 4px 0 0;
+}
+.mod_toplist li.no_pic strong {
+    font-size: 32px;
+    left: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.mod_toplist li.no_pic strong span {
+    font-size: 16px;
+    font-weight: bold;
+}
+.mod_remind {
+    bottom: 6px;
+    left: 10px;
+    position: absolute;
+}
+.mask_layer {
+    background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.mod_update{
+}
+.mod_update .mod_cont {
+    padding-bottom: 10px;
+    background:rgb(248,248,248);
+    width: 660px;
+    overflow:hidden;
+    position:relative;
+    zoom:1;
+}
+.mod_update .mod_poster .mod_update .mod_poster img {
+    height: 82px;
+    width: 145px;
+}
+.mod_today img {
+    width: 280px;
+}
+.mod_category_list {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.mod_category_list .mod_cont {
+    padding-bottom: 10px;
+    width: 680px;
+}
+.mod_category_list .mod_list_pic li {
+    margin-right: 32px;
+    width: 102px;
+}
+.mod_category_list .mod_list_pic li .mod_poster, .mod_category_list .mod_list_pic li .mod_poster img {
+    height: 140px;
+    width: 100px;
+}
+.mod_category_list .mod_more {
+    position: absolute;
+    right: 0;
+    top: 25px;
+}
+.mod_category_main {
+    float: left;
+    overflow: hidden;
+    width: 280px;
+}
+.mod_category_main .mod_pic_tit {
+    margin-bottom: 20px;
+}
+.mod_category_main .mod_pic_tit .mod_poster, .mod_category_main .mod_pic_tit .mod_poster img {
+    height: 158px;
+}
+.mod_category_sub {
+    float: left;
+    overflow: hidden;
+    padding-left: 15px;
+    position: relative;
+    width: 330px;
+}
+.mod_category_sub .mod_list_pic {
+    overflow: hidden;
+    width: 345px;
+}
+.mod_category_sub .mod_list_pic li {
+    margin: 0 15px 10px 0;
+    width: 100px;
+}
+.mod_category_sub .mod_list_pic li .mod_poster, .mod_category_sub .mod_list_pic li img {
+    height: 140px;
+    width: 100px;
+}
+.mod_serial{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+.mod_serial .mod_more{
+    top:25px;
+    right:0;
+    position:absolute;
+}
+
+.mod_theater {
+    /*background: none repeat scroll 0 0 #F8F8F8;*/
+    margin: 15px 0;
+    overflow: hidden;
+    position: relative;
+}
+.mod_theater .mod_inner {
+    overflow: hidden;
+    position: relative;
+}
+.mod_theater .mod_item_wrap {
+    overflow: hidden;
+    position: relative;
+    width: 960px;
+}
+.mod_theater .mod_item {
+    /*border-right: 1px solid #DEDEDE;*/
+    float: left;
+    margin: 5px 20px 0 0;
+    overflow: hidden;
+    padding: 0 15px 5px 0;
+    position: relative;
+    width: 290px;
+}
+.mod_theater .mod_item .mod_tit {
+    height: 22px;
+    line-height:22px;
+    margin: 5px 0 10px;
+    padding: 0;
+}
+.mod_theater .mod_item .mod_tit a {
+    display: block;
+    height: 22px;
+    line-height: 999px;
+    overflow: hidden;
+}
+.mod_theater .mod_item .mod_pic_tit {
+    width: 280px;
+}
+.mod_theater .mod_item .mod_pic_tit p {
+    text-align: center;
+}
+.mod_theater .mod_item .mod_pic_tit .mod_poster, .mod_theater .mod_item .mod_pic_tit .mod_poster img {
+    height: 158px;
+    width: 280px;
+}
+.mod_theater .mod_item .mod_list_play {
+    margin: 10px 0;
+}
+.mod_theater .mod_item .mod_list_play li {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 180px;
+}
+.mod_theater .prev, .mod_theater .next {
+    background: url("../images/bg.png") no-repeat scroll 0 0 transparent;
+    border: 0 none;
+    cursor: pointer;
+    font-size: 0;
+    height: 52px;
+    line-height: 999px;
+    overflow: hidden;
+    position: absolute;
+    top: 140px;
+    width: 26px;
+    z-index: 100;
+}
+.mod_theater .over {
+    cursor: default;
+    opacity: 0.6;
+}
+.mod_theater .mod_theater_list {
+    background: url("../images/bg.png") repeat-x scroll 0 -685px transparent;
+    border-top: 1px solid #E7E7E7;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+    padding-left: 19px;
+    position: relative;
+}
+.mod_theater .mod_more {
+    position: absolute;
+    right: 20px;
+    top: 0;
+}

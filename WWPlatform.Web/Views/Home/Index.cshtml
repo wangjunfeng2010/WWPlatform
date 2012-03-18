@@ -1,0 +1,270 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Model;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.HPViewModel
+@{
+    ViewBag.Title = "文化中国 专业的文化传媒网站";   
+}
+@section res{
+    <meta name="keywords" content="文化中国" />
+    <meta name="description" content="文化中国 专业的文化传媒网站" />
+    <link href="@Url.StyleSheet("index.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Javascript("txv.index.js")" type="text/javascript"></script>
+}
+@section head{
+    @Html.Partial("Header")
+}
+<!--百家讲坛 开始-->
+<div class="container_16 clearfix">
+    <div class="grid_12">
+        <div class="mod_box">
+            <h2 class="mod_tit_bg">
+                <a class="c_txt5" href="@Url.Action("index", "home", new { area = "CNTV" })">百家讲坛</a>
+            </h2>
+            @{
+                var update = Model.Update;
+            }
+            <div class="mod_main">
+                <div class="mod_pic_tit">
+                    <div class="mod_pic">
+                        <span class="new"></span><a href="@Url.Action(update)">
+                            <img src="@update.Feature.Cover" alt="@update.Feature.Title" />
+                        </a>
+                    </div>
+                    <h4>
+                        <a href="@Url.Action(update.Feature)">@update.Feature.Title</a>
+                    </h4>
+                    <p>
+                        @update.Feature.Brief
+                        <a href="@Url.Action(update.Feature)">详细<span>&gt;&gt;</span></a>
+                    </p>
+                </div>
+                <dl class="mod_class_list">
+                    <dt class="c_txt5">热门分类</dt>
+                    @foreach (var c in Model.IndexCatalogs.Take(3))
+                    {
+                        <dd>
+                            <strong class="c_txt2"><a href="@string.Format("/lib/1_{0}_1_1.html", c.Catalog.Idkey)">@c.Catalog.Title</a>： </strong>
+                            @foreach (var f in c.Features.Where(f => f.Idkey != update.Feature.Idkey && f.Hot).Take(3))
+                            {
+                                <a href="@Url.Action(f)">@f.Title</a>
+                            }
+                        </dd>
+                    }
+                </dl>
+            </div>
+            <div class="mod_sub">
+                <ul class="mod_list_pic">
+                    @foreach (var f in Model.Features.Take(6))
+                    {
+                        <li><a title="@f.Title" href="@Url.Action(f)">
+                            <img src="@f.Cover" alt="@f.Title" />
+                        </a>
+                            <h6>
+                                <a href="@Url.Action(f)">@f.Title</a>
+                            </h6>
+                            <p>@f.Notes</p>
+                        </li>
+                    }
+                </ul>
+            </div>
+            <div class="mod_more">
+                <a href="@Url.Action("index", "home", new { area = "CNTV" })" target="_blank">更多<span>&gt;&gt;</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="mod_script_list">
+            <h2 class="mod_tit_box">
+                最新讲稿</h2>
+            <div>
+                <dl>
+                    @foreach (var item in Model.Scripts.Select((item, index) => new { Index = index, Script = item, Webcast = item.Webcast }))
+                    {
+                        if (item.Index == 0)
+                        { 
+                        <dt><a href="@Url.Action(item.Script)">@item.Webcast.Feature.Title@item.Webcast.Title</a>
+                            @if (item.Script.Compiled.DayOfYear == DateTime.Today.DayOfYear)
+                            {
+                                <img src="@Url.Image("new.gif")" alt="新" />
+                            }
+                            <p>
+                                @Html.Raw(@item.Script.Brief)...<a href="@Url.Action(item.Script)">立即阅读</a>
+                            </p>
+                        </dt>
+                        }
+                        else
+                        {
+                        <dd>
+                            <a href="@Url.Action(item.Script)">@item.Webcast.Feature.Title@item.Webcast.Title</a>
+                        </dd>
+                        }
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<!--百家讲坛 结束-->
+
+<!--古史今鉴 开始-->
+<div class="container_16 clearfix">
+    <div class="grid_12">
+        <div class="mod_box">
+            <h2 class="mod_tit_bg">
+                <a class="c_txt5" href="@Url.Action("list", "home", new { area = "atk",s=1 })">古史今鉴</a>
+            </h2>
+            <div class="mod_main">
+                <div class="mod_pic_tit">
+                    <div class="mod_pic">
+                        <span class="new"></span><a href="">
+                            <img src="http://www.baijiajiangtan.com.cn/UploadFiles/HBZQ/2011/1/201101051430023690.jpg" alt="" />
+                        </a>
+                    </div>
+                    <h4>
+                        <a href="">七擒孟获：是否真有其事？</a>
+                    </h4>
+                    <p>
+                        诸葛亮治蜀一年多之后，内外局势基本稳定，蜀中经济复苏，元气已然大复。但这时尚有“南中叛乱”没有平复，其一直处在“无政府状态”之下。 <a href="@Url.Action(update.Feature)">详细<span>&gt;&gt;</span></a>
+                    </p>
+                </div>
+            </div>
+            <div class="mod_sub">
+                @foreach (var item in Model.Histories.Select((item, idx) => new { AtkClass = item.AtkClass, Histories = item.Histories, Index = idx + 1 }))
+                {
+                    var cls = "mod_digest_list";
+                    if (item.Index != Model.Histories.Count())
+                    {
+                        cls = cls + " bbor";
+                    }
+                    <dl class="@cls">
+                        <dt>
+                            <a href="">
+                                <img src="http://img1.gtimg.com/book/pics/hv1/20/208/848/55194260.jpg" />
+                            </a>
+                        </dt>
+                        @foreach (var d in item.Histories.Take(3))
+                        {
+                            <dd>
+                                [<a href="">@item.AtkClass.Title</a>] <a class="c_txt1" href="@Url.Action(d)">@d.Title</a>
+                            </dd>
+                        }
+                    </dl>
+                }
+            </div>
+            <div class="mod_more">
+                <a href="@Url.Action("index", "home", new { area = "atk" })" target="_blank">更多<span>&gt;&gt;</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="mod_essay_list">
+            <h2 class="mod_tit_box">
+                <a href="@Url.Action("list","home",new{area="atk",s=2})">探索发现</a>                
+            </h2>
+            <div>
+                <ul>
+                    <li><a href="/JPXD/2011/09/05/5051.html" target="_blank">莫扎特严重缺乏日照或是其致死原因</a> </li>
+                    <li><a href="/JPXD/2011/08/31/5025.html" target="_blank">方舟子：吃胎盘也是一种吃人肉行为</a> </li>
+                    <li><a href="/JPXD/2011/08/28/4989.html" target="_blank">四千光年之外“潜伏”一颗钻石星球</a> </li>
+                    <li><a href="/JPXD/2011/08/26/4973.html" target="_blank">美科学家计算得出中国人是人类祖先</a> </li>
+                    <li><a href="/JPXD/2011/08/26/4971.html" target="_blank">距今亿年：辽宁找到人类“曾祖母”</a> </li>
+                    <li><a href="/JPXD/2011/08/25/4965.html" target="_blank">辛亥之后几万南京旗人到哪里去了？</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--古史今鉴 结束-->
+
+<!--读者文摘 开始-->
+<div class="container_16 clearfix">
+    <div class="grid_12">
+        <div class="mod_box">
+            <h2 class="mod_tit_bg">
+                <a class="c_txt5" href="@Url.Action("list", "home", new { area = "atk", s = 3 })">读者文摘</a>
+            </h2>
+            <div class="mod_equ">
+                <dl>
+                    <dd>
+                        <a href="http://chuangxin.umiwi.com/2011/0905/35010.shtml" class="img">
+                            <img width="120" height="90" alt="创意生活 每天一点（54）" src="http://upload.umiwi.com/2011/0905/1315189241187.jpg">
+                        </a>
+                    </dd>
+                    <dt>
+                        <a href="http://chuangxin.umiwi.com/2011/0905/35010.shtml">创意生活 每天一点（54）</a>
+                    </dt>
+                    <dd>
+                        <p>你会不会想过，有一天突然惊醒，发现现在经历的所有其实只是一场梦。 <a href="http://chuangxin.umiwi.com/2011/0905/35010.shtml">[详情]</a></p>
+                    </dd>
+                </dl>
+                <ul>
+                    <li>    
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34713.shtml">40个创意的饮食行业网站设计</a>
+                    </li>
+                    <li>    
+                        <a href="http://chuangxin.umiwi.com/2011/0904/34914.shtml">人像摄影欣赏：创造性地捕捉情绪</a>
+                    </li>
+                    <li>    
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34712.shtml">十大最具智慧的典礼演讲</a>
+                    </li>
+                    <li>    
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34756.shtml">猪带给世界的连锁反应</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_equ">
+                <dl>
+                    <dd>
+                        <a href="http://chuangxin.umiwi.com/2011/0904/34918.shtml" class="img"><img width="120" height="90" alt="精彩的反吸烟广告" src="http://upload.umiwi.com/2011/0905/1315186560547.jpg"> </a>
+                    </dd>
+                    <dt>
+                        <a href="http://chuangxin.umiwi.com/2011/0904/34918.shtml">精彩的反吸烟广告</a>
+                    </dt>
+                    <dd>
+                        <p>吸烟有害健康！看广告人是怎么反对吸烟的，希望能给你一点震撼。 <a href="http://chuangxin.umiwi.com/2011/0904/34918.shtml">[详情]</a></p>
+                    </dd>
+                </dl>
+                <ul>
+                    <li>
+                        <a href="http://chuangxin.umiwi.com/2011/0904/34910.shtml">30个形状各异的创意服装吊牌设计</a>
+                    </li>
+                    <li>
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34718.shtml">十佳展示自信的身体语言</a>
+                    </li>
+                    <li>
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34725.shtml">研究人们心情的网站汇总</a>
+                    </li>
+                    <li>
+                        <a href="http://chuangxin.umiwi.com/2011/0902/34752.shtml">喜剧演员朱莉娅和八岁女儿的谈话</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="mod_more">
+                <a href="@Url.Action("index", "home", new { area = "atk" })" target="_blank">更多<span>&gt;&gt;</span></a>
+            </div>
+        </div>
+    </div>
+    <div class="grid_4">
+        <div class="mod_essay_list">
+            <h2 class="mod_tit_box">
+                <a href="@Url.Action("list","home",new{area="atk",s=4})">百家杂谈</a>
+            </h2>
+            <div>
+                <ul>
+                    @foreach (var essay in Model.Essays)
+                    {
+                        <li>
+                            <a href="@Url.Action(essay)">@essay.Title</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--读者文摘 结束-->
+
+<script type="text/javascript">
+    //txv.index.init();
+</script>

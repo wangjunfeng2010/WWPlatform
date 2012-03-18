@@ -1,0 +1,361 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4AC9C5B9-EC4C-45FA-8069-2AD4C4E0671F}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WWPlatform.Web</RootNamespace>
+    <AssemblyName>WWPlatform.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\Bin\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock">
+      <HintPath>..\Bin\Jayrock.dll</HintPath>
+    </Reference>
+    <Reference Include="Jayrock.Json">
+      <HintPath>..\Bin\Jayrock.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.2.1.505.0\lib\NET35\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\ATK\Models\AtkViewModel.cs" />
+    <Compile Include="Areas\ATK\Models\ContentViewModel.cs" />
+    <Compile Include="Areas\ATK\Models\ListViewModel.cs" />
+    <Compile Include="Areas\CGI\CGIAreaRegistration.cs" />
+    <Compile Include="Areas\CGI\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CNTV\CNTVAreaRegistration.cs" />
+    <Compile Include="Areas\CNTV\Controllers\HomeController.cs" />
+    <Compile Include="Areas\CNTV\Models\IndexViewModel.cs" />
+    <Compile Include="Areas\ATK\Controllers\HomeController.cs" />
+    <Compile Include="Areas\ATK\ATKAreaRegistration.cs" />
+    <Compile Include="Areas\Pdf\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Pdf\PdfAreaRegistration.cs" />
+    <Compile Include="Components\FormsAuthenticationTicketService.cs" />
+    <Compile Include="Components\HttpContextIdentityProvider.cs" />
+    <Compile Include="Components\HttpContextPerRequestStore.cs" />
+    <Compile Include="Components\HttpContextSessionStore.cs" />
+    <Compile Include="Components\IAuthenticationTicketService.cs" />
+    <Compile Include="Components\ISessionStore.cs" />
+    <Compile Include="Components\UnityContainerBuilder.cs" />
+    <Compile Include="Components\UnityControllerFactory.cs" />
+    <Compile Include="Areas\CNTV\Controllers\FeatureController.cs" />
+    <Compile Include="Controllers\SiteUserController.cs" />
+    <Compile Include="Mvc\ActionResult\PdfResult.cs" />
+    <Compile Include="Mvc\ActionResult\RssResult.cs" />
+    <Compile Include="Mvc\Attributes\PageResultsAttribute.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Mvc\Attributes\ErrorLogAttribute.cs" />
+    <Compile Include="Areas\CNTV\Controllers\WebcastController.cs" />
+    <Compile Include="Mvc\Extensions\ControllerExtensions.cs" />
+    <Compile Include="Mvc\Extensions\UrlHelperExtensions.cs" />
+    <Compile Include="Mvc\Extensions\HtmlHelperExtensions.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Mvc\PaginationBuilder.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\HotIndexViewModel.cs" />
+    <Compile Include="Areas\CNTV\Models\PreviewViewModel.cs" />
+    <Compile Include="ViewModels\HPViewModel.cs" />
+    <Compile Include="Areas\CNTV\Models\LibViewModel.cs" />
+    <Compile Include="Areas\CNTV\Models\PBViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\404.jpg" />
+    <Content Include="Content\images\chunqiuwuba.jpg" />
+    <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\liaozhai.png" />
+    <Content Include="Content\images\license.png" />
+    <Content Include="Content\images\likui.jpg" />
+    <Content Include="Content\images\linchong.jpg" />
+    <Content Include="Content\images\lisi.jpg" />
+    <Content Include="Content\images\logo.jpg" />
+    <Content Include="Content\images\logo_s.jpg" />
+    <Content Include="Content\images\luzhishen.jpg" />
+    <Content Include="Content\images\new.gif" />
+    <Content Include="Content\images\vico.png" />
+    <Content Include="Content\swf\player.swf" />
+    <Content Include="Content\swf\install.swf" />
+    <Content Include="google15d71a2e439c3b33.html" />
+    <Content Include="robots.txt" />
+    <Content Include="Scripts\cntv\fplayer.js" />
+    <Content Include="Scripts\cntv\txv.index.js" />
+    <Content Include="Scripts\cntv\txv.lib.js" />
+    <Content Include="Scripts\cntv\txv.play.js" />
+    <Content Include="Scripts\cntv\txv.preview.js" />
+    <Content Include="Scripts\fiction\index.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.lazyload.min.js" />
+    <Content Include="Scripts\swfobject.js" />
+    <Content Include="Scripts\txv.base.js" />
+    <Content Include="Scripts\txv.base.min.js" />
+    <Content Include="Scripts\txv.index.js" />
+    <Content Include="Scripts\txv.notice.js" />
+    <Content Include="Scripts\txv.search.js" />
+    <Content Include="Scripts\txv.trimpath.js" />
+    <Content Include="sitemap.xml" />
+    <Content Include="Styles\atk\browse.css" />
+    <Content Include="Styles\atk\list.css" />
+    <Content Include="Styles\cntv\browse.css" />
+    <Content Include="Styles\cntv\index.css" />
+    <Content Include="Styles\cntv\lib.css" />
+    <Content Include="Styles\cntv\play.css" />
+    <Content Include="Styles\cntv\preview.css" />
+    <Content Include="Styles\fiction\browse.css" />
+    <Content Include="Styles\fiction\images\b.gif" />
+    <Content Include="Styles\fiction\images\chap_bg.gif" />
+    <Content Include="Styles\fiction\images\cover_bg.gif" />
+    <Content Include="Styles\fiction\images\sec_bg.gif" />
+    <Content Include="Styles\fiction\images\t.gif" />
+    <Content Include="Styles\fiction\index.css" />
+    <Content Include="Styles\fiction\preview.css" />
+    <Content Include="Styles\images\bg_pop.png" />
+    <Content Include="Styles\images\bg_t.png" />
+    <Content Include="Styles\fiction\images\tit_bg2.gif" />
+    <Content Include="Styles\fiction\images\tit_bg.gif" />
+    <Content Include="Styles\images\vico.png" />
+    <Content Include="Styles\images\bg.png" />
+    <Content Include="Styles\index.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.5.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="Styles\global.css" />
+    <Content Include="Styles\search.css" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\MicrosoftAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcAjax.js" />
+    <Content Include="Scripts\MicrosoftMvcValidation.js" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\NotFound.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SDK\QzoneSDK\QzoneSDK.csproj">
+      <Project>{A25DEA5A-8F62-419A-8505-60937D021CB7}</Project>
+      <Name>QzoneSDK</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WWPlatform.Core\WWPlatform.Core.csproj">
+      <Project>{9594124C-761C-489B-98CC-8B2198CB0452}</Project>
+      <Name>WWPlatform.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WWPlatform.DataAccess\WWPlatform.DataAccess.csproj">
+      <Project>{FCD93D1C-2FDC-4A3E-A7D4-D8896A4F1C62}</Project>
+      <Name>WWPlatform.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WWPlatform.Model\WWPlatform.Model.csproj">
+      <Project>{59A03485-8B44-4D59-A384-B4CF69E5DC5E}</Project>
+      <Name>WWPlatform.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CNTV\Views\Webcast\Play.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CNTV\Views\Home\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CNTV\Views\Feature\Lib.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CNTV\Views\Feature\Preview.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\SiteUser\Callback.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Header.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\SimpleHeader.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\Search.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\CNTV\Views\Webcast\Browse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Pdf\Views\Web.config" />
+    <Content Include="Areas\CGI\Views\Web.config" />
+    <Content Include="Areas\CNTV\Views\Web.config" />
+    <Content Include="Areas\ATK\Views\Web.config" />
+    <Content Include="Areas\CNTV\Views\Home\Forecast.cshtml" />
+    <Content Include="Areas\ATK\Views\Home\Browse.cshtml" />
+    <Content Include="Areas\ATK\Views\Home\Index.cshtml" />
+    <Content Include="Areas\ATK\Views\Home\List.cshtml" />
+    <None Include="Content\font\simhei.ttf" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\ATK\Views\Shared\" />
+    <Folder Include="Areas\CGI\Models\" />
+    <Folder Include="Areas\CGI\Views\Shared\" />
+    <Folder Include="Areas\CNTV\Views\Shared\" />
+    <Folder Include="Areas\Pdf\Models\" />
+    <Folder Include="Areas\Pdf\Views\Shared\" />
+    <Folder Include="Content\images\fiction\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

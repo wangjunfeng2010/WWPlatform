@@ -1,0 +1,43 @@
+﻿.mod_shelf {
+    overflow:auto;
+    padding-bottom:20px;
+}
+.mod_shelf ul li {
+    float: left;
+    width: 300px;
+    margin: 15px 10px 0 0;
+    border: 1px solid #e4e4e4;
+}
+.mod_shelf ul li .mod_tit {
+    background: url("images/tit_bg2.gif");
+    height: 27px;
+    line-height:27px;
+    font-size:12px;
+    padding:0;
+}
+.mod_shelf ul li .mod_cont{
+    padding:8px 0 0 8px;
+    height:174px;
+}
+.mod_shelf ul li .mod_cont:hover{
+    background-color:#f1f1f1;
+}
+.mod_shelf ul li .mod_tit .mod_wrap{
+    background:url("images/tit_bg.gif") no-repeat scroll left center transparent;
+    padding-left:22px;
+}
+.mod_cont dl dt{
+    float:left;
+}
+.mod_cont dl dt img{
+    width:118px;
+    height:166px;
+}
+.mod_cont dl dd{
+    overflow:hidden;
+    padding-left:10px;
+    line-height:20px;
+}
+.mod_cont dl dd p{
+    text-indent:2em;
+}

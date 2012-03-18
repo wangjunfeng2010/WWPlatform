@@ -1,0 +1,238 @@
+﻿.mod_box {
+    border: 1px solid #DEDEDE;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.mod_box .mod_more {
+    position: absolute;
+    right: 19px;
+    top: 7px;
+}
+.mod_box .mod_tit_bg {
+    margin-bottom: 15px;
+}
+.new {
+    background: url("images/bg_u.gif") no-repeat scroll 0 0 transparent;
+    background-position: -119px -129px;
+    display: block;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+a span {
+    font-family: "宋体";
+    font-weight: normal;
+}
+.mod_main {
+    float: left;
+    overflow: hidden;
+    padding-left: 19px;
+    width: 280px;
+}
+.mod_main .mod_pic_tit {
+    margin-bottom: 20px;
+}
+.mod_pic_tit {
+    overflow: hidden;
+    width: 280px;
+}
+.mod_sub {
+    float: left;
+    overflow: hidden;
+    padding-left: 15px;
+    position: relative;
+    width: 370px;
+}
+.mod_sub .mod_list_pic {
+    overflow: hidden;
+}
+.mod_sub .mod_list_pic li {
+    margin: 0 20px 10px 0;
+    width: 100px;
+}
+.mod_equ {
+    float: left;
+    overflow: hidden;
+    padding-left: 19px;
+    width: 330px;
+}
+.mod_equ dl dd{
+    line-height:18px;
+}
+.mod_equ dl dt{
+    line-height:26px;
+    font-size:14px;
+    font-weight:bold;
+}
+.mod_equ dl img{
+    float:left;
+    margin-right:10px;
+}
+.mod_equ ul{
+    margin-top:15px;
+}
+.mod_equ ul li{
+    background: url("images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    padding-left: 16px;
+    line-height:26px;
+}
+.mod_poster_v {
+    height: 140px;
+    width: 100px;
+}
+.mod_poster, .mod_poster_v {
+    display: block;
+    overflow: hidden;
+    position: relative;
+    width: 118px;
+}
+.mod_sub .mod_list_pic li .mod_poster, .mod_sub .mod_list_pic li img {
+    height: 140px;
+    width: 100px;
+}
+.mod_list_pic li, .mod_list_pic_v li {
+    float: left;
+    margin: 0 50px 15px 0;
+    width: 118px;
+}
+.mod_pic_tit h4 {
+    overflow: hidden;
+    padding: 6px 0 2px;
+    text-align: center;
+    width: 100%;
+}
+.mod_pic_tit h4 a {
+    font-size: 14px;
+    font-weight: normal;
+}
+.mod_pic img {
+    width: 280px;
+    height: 165px;
+}
+.mod_class_list dt {
+    font-weight: bold;
+    margin-bottom: 4px;
+}
+.mod_class_list dd {
+    line-height: 26px;
+    white-space: nowrap;
+}
+.mod_list_pic li h6, .mod_list_pic_v li h6 {
+    overflow: hidden;
+    padding: 3px 0 0;
+    text-align: center;
+}
+.mod_list_pic li h6 a, .mod_list_pic_v li h6 a {
+    font-weight: normal;
+}
+.mod_list_pic li p, .mod_list_pic_v li p {
+    height: 18px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_script_list .mod_tit_box {
+    margin-bottom: 15px;
+}
+.mod_tit_box {
+    border: 1px solid #DEDEDE;
+}
+.mod_script_list dl dt, .mod_script_list dl dd {
+    line-height: 30px;
+}
+
+.mod_script_list dl dd {
+    background: url("images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    padding-left: 16px;
+}
+
+.mod_script_list dl dt p, .mod_script_list dl dt h1 {
+    line-height: 24px;
+    text-indent: 2em;
+    font-weight: normal;
+}
+.mod_book_new {
+    padding-bottom: 15px;
+    overflow: auto;
+}
+.mod_book_new dt, .mod_book_new dd {
+    float: left;
+    overflow: hidden;
+}
+.mod_book_new dd {
+    width: 200px;
+    margin-left: 10px;
+    line-height: 22px;
+}
+.mod_book_new li {
+    line-height: 28px;
+}
+.mod_book_update dl dt
+{
+    font-weight:bold;
+    font-size:14px;
+    line-height:28px;
+    overflow:hidden;
+    text-align:center;
+}
+.mod_book_update dl dd{
+    line-height:22px;
+    text-indent:2em;
+}
+.mod_book_update ul li {
+    line-height: 28px;
+    background: url("images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    padding-left: 16px;
+}
+.mod_book_recommend dl {
+    overflow: auto;
+}
+.mod_book_recommend dl dt, .mod_book_recommend dl dd {
+    float: left;
+    overflow: hidden;
+}
+.mod_book_recommend dl dd {
+    width: 160px;
+    margin-left: 10px;
+    line-height: 22px;
+}
+.mod_book_recommend li {
+    line-height: 28px;
+    background: url("images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    padding-left: 16px;
+}
+.mod_essay_list li {
+    line-height: 28px;
+    background: url("images/bg_u.gif") no-repeat scroll -233px -145px transparent;
+    padding-left: 16px;
+}
+.mod_version {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    color: #FFFFFF;
+    cursor: pointer;
+    font-family: Arial;
+    height: 16px;
+    left: -5px;
+    line-height: 17px;
+    overflow: hidden;
+    padding-right: 5px;
+    position: absolute;
+    text-align: right;
+    width: 100px;
+    z-index: 10;
+}
+.mod_digest_list {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.mod_digest_list dd {
+    line-height: 24px;
+    background: url("images/bg_u.gif") no-repeat scroll -232px -126px transparent;
+    padding-left:16px;
+}
+.mod_digest_list dt {
+    float: right;
+}

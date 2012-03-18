@@ -1,0 +1,215 @@
+﻿.mod_topbar {
+    height: 60px;
+    overflow: hidden;
+}
+.mod_topbar.no_result {
+    border-bottom: 1px solid #D7D7D7;
+}
+.mod_topbar .mod_result_data {
+    float: left;
+    margin-top: 28px;
+}
+.mod_topbar .mod_suggest {
+    float: right;
+    margin-top: 28px;
+}
+.mod_result_list .mod_cont {
+    padding-top: 30px;
+}
+.mod_result_list .mod_cont li {
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 0 0 20px 167px;
+    position: relative;
+}
+.mod_result_list .mod_cont li .mod_pic {
+    float: left;
+    margin-left: -167px;
+    overflow: hidden;
+    text-align: center;
+    width: 145px;
+}
+.mod_result_list .mod_cont li .mod_pic .mod_poster, .mod_result_list .mod_cont li .mod_pic .mod_poster_v {
+    margin: 0 auto;
+}
+.mod_result_list .mod_cont li dl {
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.mod_result_list .mod_cont li dt {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 0;
+    width: 420px;
+}
+.mod_result_list .mod_cont li dt span {
+    font-size: 12px;
+    font-weight: normal;
+    margin-left: 20px;
+}
+.mod_result_list .mod_cont li dd {
+    float: left;
+    line-height: 24px;
+    width: 50%;
+}
+.mod_result_list .mod_cont li dd.mod_artist {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 350px;
+}
+.mod_result_list .mod_cont li dd a {
+    margin-right: 5px;
+}
+.mod_result_list .mod_cont li .mod_desc {
+    line-height: 22px;
+}
+.mod_result_list .mod_cont li .mod_grade_score {
+    position: absolute;
+    right: 5px;
+    top: -15px;
+}
+.mod_result_list .mod_cont li .mod_grade_score strong {
+    font-family: "Times New Roman";
+    font-size: 40px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+.mod_result_list .mod_cont li .mod_grade_score strong em {
+    font-size: 20px;
+    font-style: normal;
+}
+.mod_result_list .mod_cont li .no_score {
+    top: 5px;
+}
+.mod_no_result {
+    margin: 150px 0 200px 160px;
+    padding-left: 50px;
+    position: relative;
+}
+.mod_no_result p {
+    font-size: 14px;
+    font-weight: bold;
+}
+.mod_no_result dl {
+    padding-top: 2px;
+}
+.mod_no_result dt {
+    float: left;
+}
+.mod_icon {
+    background: url("images/bg_pop.png") no-repeat scroll -38px 0 transparent;
+    height: 40px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 37px;
+}
+.mod_hot_search {
+    overflow: hidden;
+    padding-bottom: 100px;
+    width: 100%;
+}
+.mod_hot_search .mod_cont {
+    overflow: hidden;
+    width: 740px;
+}
+.mod_ads {
+    margin-top: 20px;
+}
+.mod_ads img {
+    width: 220px;
+}
+.mod_tab {
+    overflow: hidden;
+    width: 100%;
+}
+.mod_tab ul {
+    border-bottom: 1px solid #D7D7D7;
+    height: 29px;
+}
+.mod_tab li {
+    float: left;
+    height: 28px;
+    width: 80px;
+}
+.mod_tab li a {
+    border-right: 1px solid #D7D7D7;
+    display: block;
+    height: 18px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+.mod_tab li.current a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #D7D7D7 #D7D7D7 #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    color: #2D2D2D;
+    cursor: default;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    position: absolute;
+    width: 78px;
+}
+.mod_tab li.current a:hover {
+    text-decoration: none;
+}
+.mod_sub_tab a {
+    display: inline-block;
+    padding: 0 6px;
+}
+.mod_sub_tab .current {
+    background: none repeat scroll 0 0 #056EA1;
+    color: #FFFFFF;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.mod_sub_tab .current:hover {
+    text-decoration: none;
+}
+.mod_poster, .mod_poster_v {
+    display: block;
+    height: 82px;
+    overflow: hidden;
+    position: relative;
+    width: 145px;
+}
+.mod_poster_v {
+    height: 140px;
+    width: 100px;
+}
+.mod_poster img {
+    height: 82px;
+    width: 145px;
+}
+.mod_poster_v img {
+    height: 140px;
+    width: 100px;
+}
+.mod_poster:hover, .mod_poster_v:hover {
+    border: medium none;
+    text-decoration: none;
+}
+.mod_poster .mod_mask, .mod_poster_v .mod_mask {
+    display: none;
+}
+.mod_poster:hover .mod_mask, .show_bt:hover .mod_mask {
+    background: url("images/bg.png") no-repeat scroll -36px -275px transparent;
+    bottom: 6px;
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    left: 6px;
+    overflow: hidden;
+    position: absolute;
+    width: 14px;
+    z-index: 30;
+}

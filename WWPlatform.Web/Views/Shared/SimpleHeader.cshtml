@@ -1,0 +1,67 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.HotIndexViewModel
+@{
+    Layout = null;
+}
+<div class="head_simple">
+    <div class="mod_inner">
+        <h1>
+            <span></span>
+            <a class="_hotkey" _hot="NAV.LOGO" href="/">
+                <img alt="文化中国" src="@Url.Image("logo_s.jpg")" />
+            </a>
+        </h1>
+        <ul class="mod_nav_simple">
+            <li>
+                <a class="c_txt4" href="/">
+                    <strong>首页</strong>
+                </a>
+            </li>
+            @foreach (var c in Model.Catalogs)
+            {
+                <li>
+                    <a class="c_txt4" href="@string.Format("/lib/2_{0}_1_1.html", @c.Idkey)">
+                        <strong>@c.Title</strong>
+                    </a>
+                </li>
+            }
+            @foreach (var s in Model.Subtypes)
+            {
+                <li>
+                    <a class="c_txt4" href="@string.Format("/lib/1_{0}_1_1.html", @s.Idkey)">
+                        <strong>@s.Title</strong>
+                    </a>
+                </li>
+            }
+            @foreach (var l in Model.Lectuers)
+            {
+                <li>
+                    <a class="c_txt4" href="@string.Format("/lib/4_{0}_1_1.html", l.Idkey)">
+                        <strong>@l.Name</strong>
+                    </a>
+                </li>
+            }
+        </ul>
+        @using (Html.BeginForm("search", "home", null, FormMethod.Get, new { @id = "sform", @name = "sform", @target = "search" }))
+        {
+            <fieldset class="mod_search open">
+                <legend>
+                    <span>搜索</span>
+                </legend>
+                <p>
+                    @Html.Label("搜索：")
+                    @Html.TextBox("ms_key", "请输入关键词", new { @class = "mod_search_txt", @maxlength = "40", @id = "iWord", @autocomplete = "off" })
+                    <button id="sbutton" class="mod_search_bt" type="submit">
+                        <span>搜索</span>
+                    </button>
+                </p>
+                <div id="mod_keywords_list" style="display: none;" class="mod_pop">
+                    <ul id="sgt_list" style="display: none;">
+                    </ul>
+                </div>
+                
+            </fieldset>
+        }
+    </div>
+</div>

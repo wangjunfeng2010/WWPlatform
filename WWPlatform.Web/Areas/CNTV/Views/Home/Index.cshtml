@@ -1,0 +1,166 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Model;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.CNTV.IndexViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "百家讲坛 文化中国 专业的文化传媒网站";   
+}
+@section res{
+    <meta name="keywords" content="百家讲坛 文化中国" />
+    <meta name="description" content="百家讲坛 文化中国 专业的文化传媒网站" />
+    <link href="@Url.StyleSheet("cntv/index.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Javascript("cntv/txv.index.js")" type="text/javascript"></script>
+}
+@section head{
+    @Html.Partial("Header")
+}
+<!--幻灯展示/最受欢迎-->
+<div class="container_16 clearfix">
+    <div class="grid_11" id="slide">
+        @{
+            <div id="slide_headbar">
+                @Model.Slides.ElementAt(0).Title
+            </div>
+            <div id="slide_photo">
+                @for (int idx = 1; idx <= @Model.Slides.Count(); idx++)
+                {
+                    var f = @Model.Slides.ElementAt(idx - 1);
+                    <a href="@Url.Action(f)" style="@string.Format("z-index:{0};display:block;", idx == 1 ? 2 : 1)" title="@f.Title" index="@idx">
+                        <img alt="@f.Title" src="@f.HDImage" />
+                    </a>
+                }
+            </div> 
+        }
+        <div id="slide_footbar">
+        </div>
+    </div>
+    <div id="update" class="update">
+        <ul>
+            @foreach (var w in Model.RandWebcasts)
+            {
+                <li>
+                    <a target="_video" href="@Url.Action(w)">
+                        <img src="@w.Image" style="width:71px;height:54px;" alt="@w.Title" />
+                    </a>
+                    @Html.ActionLink(w)
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+<!--热门索引-->
+<div class="container_16 clearfix">
+    <div class="grid_16">
+        <!--热门索引开始-->
+        <div class="mod_tags">
+            <div class="mod_cont">
+                <dl>
+                    <dt>热门索引</dt>
+                    @foreach (var s in Model.HotSubtypes)
+                    {
+                        <dd>
+                            <a href="@string.Format("/lib/1_{0}_1_1.html", @s.Idkey)">@s.Title</a>
+                        </dd>
+                    }
+                    <dd class="rbor">
+                        <a href="##"></a>
+                    </dd>
+                    @foreach (var catalog in Model.HotCatalogs)
+                    {
+                        <dd>
+                            <a href="@string.Format("/lib/2_{0}_1_1.html", @catalog.Idkey)">@catalog.Title</a>
+                        </dd>
+                    }
+                    <dd class="rbor">
+                        <a href="##"></a>
+                    </dd>
+                    @foreach (var d in Model.HotDynasties)
+                    {
+                        <dd>
+                            <a href="@string.Format("/lib/3_{0}_1_1.html", @d.Idkey)">@d.Title</a>
+                        </dd>
+                    }
+                    <dd class="rbor">
+                        <a href="##"></a>
+                    </dd>
+                    @foreach (var lectuer in Model.HotLectuers)
+                    { 
+                        <dd>
+                            <a href="@string.Format("/lib/4_{0}_1_1.html", lectuer.Idkey)">@lectuer.Name</a>
+                        </dd>
+                    }
+                </dl>
+                <p>
+                    <a href="/lib/9_-1_1_1.html"><strong>更多</strong> </a>
+                </p>
+            </div>
+        </div>
+        <!--热门索引结束-->
+    </div>
+</div>
+<!--类别列表-->
+@foreach (var ic in Model.IndexCatalogs)
+{
+    <div class="container_16 clearfix bbor">
+        <div class="grid_11">
+            <div class="mod_category_list">
+                <h2 class="mod_tit">@ic.Catalog.Title</h2>
+                <div class="mod_cont">
+                    <ul class="mod_list_pic">
+                        @foreach (var f in ic.Features)
+                        {
+                            <li>
+                                <a class="mod_poster_v" href="@Url.Action(f)">
+                                    <img alt="@f.Title" title="@f.Title" src="@f.Cover"/>
+                                </a>
+                                <h6>
+                                    <a href="@Url.Action(f)">@f.Title</a>
+                                </h6>
+                                <p title="@f.Notes">@f.Notes</p>
+                            </li>
+                        }
+                    </ul>
+                </div>
+                <div class="mod_more">
+                    <a href="@string.Format("/lib/1_{0}_1_1.html", ic.Catalog.Idkey)">更多</a>
+                </div>
+            </div>
+        </div>
+        <div class="grid_5">
+            <div class="mod_toplist">
+                <h2 class="mod_tit">
+                    <text>@ic.Catalog.Title</text>排行榜
+                </h2>
+                <div class="mod_cont">
+                    <ol>
+                        @foreach (var f in ic.RankFeatures.Select((item, index) => new { Self = item, Index = index + 1 }))
+                        {
+                            if (f.Index == 1)
+                            {
+                                <li class="mod_first no_pic">
+                                    <em>@f.Index</em>
+                                    <h6>
+                                        <a href="@Url.Action(f.Self)">@f.Self.Title</a> <span title="@f.Self.Title">@f.Self.Brief.Truncate(40)</span>
+                                    </h6>
+                                </li>
+                            }
+                            else
+                            { 
+                                <li>
+                                    <em>@f.Index</em>
+                                    <h6>
+                                        <a href="@Url.Action(f.Self)">@f.Self.Title</a> <span title="@f.Self.Title">@f.Self.Notes</span>
+                                    </h6>
+                                </li>
+                            }
+                        }
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script type="text/javascript">
+    txv.index.init();
+</script>

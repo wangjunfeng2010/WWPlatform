@@ -1,0 +1,838 @@
+﻿html, body {
+    margin: 0;
+    padding: 0;
+    color: #787878;
+}
+
+h1, h2, h3, h4, h5, h6, hr, p, blockquote, dl, dt, dd, ul, ol, li, pre, fieldset, lengend, button, input, textarea, th, td {
+    margin: 0;
+    padding: 0;
+}
+body,button, input, select, textarea, th {
+    font: 12px/1.5 Tahoma,"hiragino sans gb",Helvetica,Arial;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-size: 100%;
+}
+ul, ol, li {
+    list-style: none;
+}
+legend {
+    color: #000000;
+}
+fieldset, img {
+    border: medium none;
+}
+button, input, select, textarea {
+    font-size: 100%;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+em {
+    font-style: normal;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a {
+    color: #333333;
+}
+.c_txt1 {
+    color: #787878;
+}
+.c_txt2 {
+    color: #333333;
+}
+.c_txt3 {
+    color: #FF9600;
+}
+.c_txt4 {
+    color: #484848;
+}
+.c_txt5 {
+    color: #2D2D2D;
+}
+.c_txt6 {
+    color: #68B203;
+}
+.w600 {
+    width: 600px;
+}
+.w640{
+    width:640px;
+}
+.w960 {
+    width: 960px;
+}
+.h100{
+    height:100px;
+}
+.bor {
+    border: 1px solid #DEDEDE;
+}
+.bbor {
+    border-bottom: 1px solid #EBEBEB;
+}
+.none, .hide {
+    display: none;
+}
+.text_l {
+    text-align: left;
+}
+.text_c {
+    text-align: center;
+}
+.text_r {
+    text-align: right;
+}
+.unline {
+    text-decoration: underline;
+}
+.ellipsis {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.clearfix {
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+}
+.pos_r {
+    position: relative;
+}
+.pos_r .mod_more {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+}
+.top {
+    background: none repeat scroll 0 0 #F3F3F3;
+    border-bottom: 1px solid #DEDEDE;
+    color: #A0A0A0;
+    height: 24px;
+}
+.top .mod_inner {
+    margin: 0 auto;
+    width: 960px;
+}
+.top .mod_feedback {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    position: absolute;
+}
+.top .mod_login {
+    border-right: 1px solid #D9D9D9;
+    float: right;
+    height: 15px;
+    line-height: 15px;
+    margin: 5px 10px 0 0;
+    overflow: hidden;
+    padding: 0 10px 0 0;
+}
+.top .mod_download {
+    border-right: 1px solid #D9D9D9;
+    float: right;
+    height: 15px;
+    line-height: 15px;
+    margin: 5px 10px 0 0;
+    overflow: hidden;
+    padding: 0 10px 0 0;
+}
+.top .mod_user_center {
+    border-right: 1px solid #D9D9D9;
+    float: right;
+    height: 15px;
+    line-height: 15px;
+    margin: 5px 10px 0 0;
+    padding: 0 5px 0 0;
+}
+.top .mod_user_center {
+    position: relative;
+    z-index: 110;
+}
+.top .mod_user_center h6 {
+    float: left;
+}
+.top .mod_user_center h6 a {
+    display: block;
+    font-weight: normal;
+    padding-right: 15px;
+    position: relative;
+    z-index: 110;
+}
+.top .mod_user_center h6 a .mod_arrow {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #787878 transparent transparent;
+    border-style: solid;
+    border-width: 4px;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 2px;
+    top: 5px;
+    width: 0;
+}
+.top .mod_user_center h6 a:hover .mod_arrow {
+}
+.top .mod_user_center.open h6 a .mod_arrow {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent transparent #787878;
+    border-style: solid;
+    border-width: 4px;
+    top: 1px;
+}
+.top .mod_user_center.open h6 a:hover .mod_arrow {
+}
+.top .mod_user_center .mod_pop {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DEDEDE;
+    display: none;
+    left: 0;
+    position: absolute;
+    top: 23px;
+    width: 68px;
+}
+.top .mod_user_center li {
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    padding: 0 10px;
+    position: relative;
+}
+.top .mod_user_center li.current {
+    background: none repeat scroll 0 0 #DBDBDB;
+}
+.top .mod_user_center.open .mod_pop {
+    display: block;
+}
+.top .mod_out_link {
+    float: right;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+}
+.top .mod_out_link {
+    margin: 5px 0 0;
+}
+.head_simple {
+    background: none repeat scroll 0 0 #FBFBFB;
+    border-bottom: 1px solid #DFDFDF;
+    color: #909090;
+    text-align: left;
+}
+.head_simple .mod_inner {
+    height: 40px;
+    margin: 0 auto;
+    position: relative;
+    width: 990px;
+    z-index: 500;
+}
+.head_simple h1 {
+    height: 35px;
+    left: 0;
+    position: relative;
+    top: 4px;
+    width: 112px;
+}
+.head_simple h1 span {
+    display: block;
+    font-size: 0;
+    height: 35px;
+    line-height: 999px;
+    overflow: hidden;
+}
+.head_simple h1 a {
+    position: absolute;
+    top: 0;
+}
+.mod_nav_simple {
+    left: 130px;
+    position: absolute;
+    top: 10px;
+}
+.mod_nav_simple li {
+    float: left;
+    margin-right: 15px;
+}
+.mod_nav_simple li a strong {
+    font-weight: normal;
+}
+.head_simple .mod_history {
+    position: absolute;
+    right: 190px;
+    top: 8px;
+}
+.head_simple .mod_history .mod_pop {
+    right: 0;
+}
+.head_simple .mod_search {
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+.head_simple .mod_search .mod_search_txt {
+    width: 100px;
+}
+.head_simple .mod_search p {
+    width: 148px;
+}
+.head_simple .mod_search .mod_pop, .head_simple .mod_search .mod_pop ul {
+    width: 128px;
+}
+.head_simple .mod_search .mod_pop li {
+    overflow: hidden;
+    padding-right: 0;
+    white-space: nowrap;
+    width: 128px;
+}
+.head {
+    background: none repeat scroll 0 0 #FCFCFC;
+}
+.head .mod_inner {
+    height: 72px;
+    margin: 0 auto;
+    position: relative;
+    width: 990px;
+    z-index: 100;
+}
+.head h1 {
+    height: 62px;
+    left: 3px;
+    position: relative;
+    top: 8px;
+    width: 172px;
+}
+.head h1 span {
+    display: block;
+    font-size: 0;
+    height: 62px;
+    line-height: 999px;
+    overflow: hidden;
+}
+.head h1 a {
+    position: absolute;
+    top: 0;
+}
+.head .mod_history {
+    position: absolute;
+    right: 340px;
+    top: 21px;
+}
+.head .mod_search {
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 21px;
+    width: 332px;
+}
+.mod_nav {
+    background: url("images/bg.png") repeat-x scroll 0 0 transparent;
+}
+.mod_nav .mod_inner {
+    height: 41px;
+    margin: 0 auto;
+    position: relative;
+    width: 960px;
+}
+.mod_nav ul {
+    background: url("images/bg.png") no-repeat scroll right -50px transparent;
+    float: left;
+    padding-right: 70px;
+}
+.mod_nav li {
+    /*background: url("images/bg.png") no-repeat scroll right -150px transparent;*/
+    float: left;
+    width:120px;
+}
+.mod_nav li.last {
+    background: none repeat scroll 0 0 transparent;
+}
+.mod_nav li a {
+    float: left;
+    height: 41px;
+    line-height: 41px;
+    overflow: hidden;
+    text-align: center;
+    width: 66px;
+}
+.mod_nav li a strong {
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: normal;
+}
+.mod_nav li a:hover {
+    text-decoration: none;
+}
+.mod_nav li a:hover strong {
+    font-weight: bold;
+}
+.mod_nav li a.current {
+    background: url("images/bg.png") no-repeat scroll 0 -100px transparent;
+    height: 39px;
+    line-height: 39px;
+    margin-top: 2px;
+}
+.mod_nav li a.current strong {
+    color: #000000;
+    font-weight: bold;
+}
+.mod_nav p {
+    color: #C6C6C6;
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+.mod_nav p a {
+    color: #C6C6C6;
+    font-weight: normal;
+}
+.mod_nav .mod_ad_link {
+    position: absolute;
+    right: 0;
+    top: 12px;
+}
+.mod_nav .mod_ad_link a {
+    color: #ffffff;
+}
+.mod_nav .mod_notice {
+    color: #ffffff;
+    position: absolute;
+    right: 0;
+    top: 6px;
+}
+.mod_nav .mod_notice a{
+    color:#ffffff;
+}
+.mod_nav .mod_notice dl{
+    overflow:hidden;
+}
+.mod_nav .mod_notice dl dt{
+    margin-top:6px;
+}
+.mod_nav .mod_notice dl dt,.mod_nav .mod_notice dl dd{
+    float:left;
+}
+.mod_nav .mod_notice ul{
+    background:none;
+    padding:0;
+    float:none;
+}
+.mod_nav .mod_notice ul li{
+    background:none;
+    float:none;
+    width:180px;
+}
+.mod_nav .mod_notice ul li a{
+    width:auto;
+    height:30px;
+    line-height:30px;
+}
+.container_16 {
+    margin: 0 auto;
+    width: 960px;
+}
+.clearfix {
+}
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+    width: 0;
+}
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 {
+    float: left;
+    overflow: hidden;
+}
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7{
+    margin-left:10px;
+}
+.grid_1 {
+    width: 40px;
+}
+.grid_2 {
+    width: 100px;
+}
+.grid_3 {
+    width: 210px;
+}
+.grid_4 {
+    width: 240px;
+}
+.grid_5 {
+    width: 280px;
+}
+.grid_6 {
+    width: 340px;
+}
+.grid_7 {
+    width: 400px;
+}
+.grid_8 {
+    width: 460px;
+}
+.grid_9 {
+    width: 520px;
+}
+.grid_10 {
+    width: 580px;
+}
+.grid_11 {
+    width: 640px;
+}
+.grid_12 {
+    width: 700px;
+}
+.grid_13 {
+    width: 740px;
+}
+.grid_14 {
+    width: 820px;
+}
+.grid_15 {
+    width: 880px;
+}
+.grid_16 {
+    width: 960px;
+}
+.alpha {
+    margin-left: 0;
+}
+.omega {
+    margin-right: 0;
+}
+.foot {
+    background: none repeat scroll 0 0 #F8F8F8;
+    border-top: 1px solid #DEDEDE;
+    clear: both;
+    line-height: 24px;
+    margin-top: 20px;
+    padding: 20px 0 60px;
+    text-align: center;
+}
+.foot .copyrighten a, .foot .copyrightzh a {
+    color: #909090;
+}
+.mod_history {
+    position: relative;
+    z-index: 500;
+}
+.mod_history h6 {
+    background: url("http://imgcache.qq.com/mediastyle/tenvideo/img/bg_repeat_x.png") repeat-x scroll left bottom #FDFDFD;
+    border: 1px solid #D7D7D7;
+    float: left;
+    height: 23px;
+    line-height: 23px;
+    overflow: hidden;
+}
+.mod_history h6 a {
+    display: block;
+    font-weight: normal;
+    padding: 0 20px 0 6px;
+}
+.mod_history h6 a .mod_arrow {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #787878 transparent transparent;
+    border-style: solid;
+    border-width: 4px;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    right: 8px;
+    top: 10px;
+    width: 0;
+}
+.mod_history h6 a:hover .mod_arrow {
+}
+.mod_history.open .mod_arrow {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: transparent transparent #787878;
+    border-style: solid;
+    border-width: 4px;
+    top: 6px;
+}
+.mod_history.open h6 a:hover .mod_arrow {
+}
+.mod_history .mod_pop {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DEDEDE;
+    display: none;
+    height: 120px;
+    left: 0;
+    position: absolute;
+    top: 28px;
+    width: 325px;
+    z-index: 501;
+}
+.mod_history.open .mod_pop {
+    display: block;
+}
+.mod_history .mod_pop ul {
+    background: none repeat scroll 0 0 #FFFFFF;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 503;
+}
+.mod_history .mod_pop li {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+.mod_history .mod_pop li span {
+    float: left;
+    margin-right: 10px;
+}
+.mod_history .mod_pop li .mod_video_name {
+    margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 140px;
+}
+.mod_history .mod_pop li .mod_video_time {
+    width: 80px;
+}
+.mod_history .mod_pop li button {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    color: #EE0000;
+    font-family: Verdana;
+    position: absolute;
+    right: 5px;
+    text-align: center;
+    top: 4px;
+    width: 16px;
+}
+.mod_history .mod_pop li.current {
+    background: none repeat scroll 0 0 #DBDBDB;
+}
+.mod_history .mod_pop iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 502;
+}
+.mod_search {
+    border: 0 none;
+    position: relative;
+    z-index: 500;
+}
+.mod_search p {
+    background: url("images/bg.png") no-repeat scroll 5px -570px transparent;
+    border: 1px solid #D7D7D7;
+    height: 23px;
+    padding: 0 0 0 28px;
+    width: 256px;
+}
+.mod_search legend, .mod_search label {
+    display: none;
+}
+.mod_search .mod_search_txt {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: medium none;
+    color: #C4C4C4;
+    height: 14px;
+    overflow: hidden;
+    padding: 4px 0 5px;
+    position: absolute;
+    vertical-align: middle;
+    width: 256px;
+}
+.mod_search .mod_search_txt.onfocus, .mod_search .mod_search_txt:focus {
+    color: #787878;
+}
+.mod_search .mod_search_bt {
+    background: url("images/bg.png") no-repeat scroll 0 -200px transparent;
+    border: 0 none;
+    cursor: pointer;
+    font-size: 0;
+    height: 25px;
+    line-height: 999px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px;
+}
+.mod_search .mod_search_bt:hover {
+    background-position: -52px -200px;
+}
+.mod_search .mod_pop {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #DEDEDE;
+    display: none;
+    height: 240px;
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 28px;
+    width: 282px;
+    z-index: 501;
+}
+.mod_search.open .mod_pop {
+    display: block;
+}
+.mod_search .mod_pop ul {
+    left: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 503;
+}
+.mod_search .mod_pop li {
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    overflow: hidden;
+    position: relative;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_search .mod_pop li a {
+    color: #787878;
+    display: block;
+    padding-left: 10px;
+}
+.mod_search .mod_pop li a:hover {
+    text-decoration: none;
+}
+.mod_search .mod_pop li.current {
+    background: none repeat scroll 0 0 #DBDBDB;
+}
+.mod_search .mod_pop iframe {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 502;
+}
+
+.mod_tit {
+    color: #2D2D2D;
+    font-size: 14px;
+    height: 46px;
+    line-height: 46px;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.mod_sub_tit {
+    color: #2D2D2D;
+    font-size: 14px;
+    overflow: hidden;
+    padding: 10px 0;
+}
+.mod_tit_bg {
+    background: url("images/bg.png") repeat-x scroll 0 -685px transparent;
+    color: #484848;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    padding: 0 0 0 19px;
+}
+.mod_tit_box {
+    background: url("images/bg.png") repeat-x scroll 0 -685px transparent;
+    color: #484848;
+    font-size: 14px;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding: 0 0 0 10px;
+}
+.mod_tit_box span {
+    font-size: 12px;
+    margin-left: 3px;
+}
+.mod_pagenav {
+    height: 22px;
+    margin: 0 auto;
+    padding: 10px 0 20px;
+    text-align: center;
+}
+.mod_pagenav .mod_pagenav_count a, .mod_pagenav .mod_pagenav_count .current, .mod_pagenav .mod_pagenav_count .mod_pagenav_more {
+    background: none repeat scroll 0 0 #E9E9E9;
+    color: #787878;
+    display: inline-block;
+    font-family: Arial,Helvetica;
+    height: 22px;
+    line-height: 22px;
+    margin-right: -2px;
+    padding: 0 8px;
+    text-align: center;
+    vertical-align: bottom;
+}
+.mod_pagenav .mod_pagenav_count a:hover {
+    color: #575757;
+    font-weight: bold;
+    text-decoration: none;
+}
+.mod_pagenav .mod_pagenav_count .current {
+    background: none repeat scroll 0 0 #787878;
+}
+.mod_pagenav .mod_pagenav_count .current span {
+    color: #FFFFFF;
+    font-weight: bold;
+}
+.mod_pagenav .prev, .mod_pagenav .next {
+    background: url("images/bg.png") no-repeat scroll 0 -355px transparent;
+    display: inline-block;
+    font-size: 0;
+    height: 22px;
+    line-height: 999px;
+    margin-right: -2px;
+    overflow: hidden;
+    vertical-align: bottom;
+    width: 55px;
+}
+.mod_pagenav .next {
+    background-position: 0 -380px;
+}
+.mod_pagenav .prev:hover, .mod_pagenav .next:hover {
+    opacity: 0.8;
+}
+.mod_pagenav .prev_disable, .mod_pagenav .next_disable, .mod_pagenav .prev_disable:hover, .mod_pagenav .next_disable:hover {
+    opacity: 0.5;
+}

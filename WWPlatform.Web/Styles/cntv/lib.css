@@ -1,0 +1,684 @@
+﻿.mod_item_note{
+    height: 18px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+    display:block;
+}
+
+.details .mod_item_note{
+    display:none;
+}
+
+.mod_pic_txt {
+    height: 82px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-left: 155px;
+    position: relative;
+}
+.mod_pic_txt .mod_poster, .mod_pic_txt .mod_pic {
+    height: 82px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 145px;
+}
+.mod_pic_txt .mod_txt h6 {
+    margin-bottom: 5px;
+}
+.mod_poster, .mod_poster_v {
+    display: block;
+    overflow: hidden;
+    position: relative;
+}
+.mod_poster_v {
+    /*
+    height: 140px;
+    width: 120px;
+    */
+}
+.mod_poster img {
+    height: 82px;
+    width: 145px;
+}
+.mod_poster_v img {
+    height: 140px;
+    width: 100px;
+    border:1px solid #c0c0c0;
+}
+.mod_poster .mod_special, .mod_poster .mod_version, .mod_poster_v .mod_version {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    color: #CCCCCC;
+    cursor: pointer;
+    font-family: Arial;
+    height: 16px;
+    left: 0;
+    line-height: 17px;
+    overflow: hidden;
+    padding-right: 5px;
+    position: absolute;
+    text-align: right;
+    width: 140px;
+    z-index: 10;
+}
+.mod_poster_v .mod_version {
+    width: 95px;
+}
+.mod_poster .mod_special {
+    color: #FFFFFF;
+    font-size: 9px;
+    height: 14px;
+    line-height: 15px;
+}
+.mod_poster .mod_mask, .mod_poster_v .mod_mask {
+    display: none;
+}
+.mod_poster:hover, .mod_poster_v:hover {
+    border: medium none;
+    text-decoration: none;
+}
+.mod_poster:hover .mod_mask, .show_bt:hover .mod_mask {
+    background: url("images/bg.png") no-repeat scroll -36px -275px transparent;
+    bottom: 6px;
+    cursor: pointer;
+    display: block;
+    height: 14px;
+    left: 6px;
+    overflow: hidden;
+    position: absolute;
+    width: 14px;
+    z-index: 30;
+}
+.no_bt:hover .mod_mask {
+    display: none;
+}
+.s_page {
+    background: none repeat scroll 0 0 transparent;
+    border: medium none;
+    margin: 0;
+    padding: 0;
+}
+.s_page .mod_pagenav_count2 {
+    display: inline-block;
+    line-height: 22px;
+    padding-right: 5px;
+}
+.mod_tab {
+    overflow: hidden;
+    width: 100%;
+}
+.mod_tab ul {
+    border-bottom: 1px solid #D7D7D7;
+    height: 29px;
+}
+.mod_tab li {
+    float: left;
+    height: 28px;
+    width: 80px;
+}
+.mod_tab li a {
+    border-right: 1px solid #D7D7D7;
+    display: block;
+    height: 18px;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+}
+.mod_tab li.current a {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #D7D7D7 #D7D7D7 #FFFFFF;
+    border-style: solid;
+    border-width: 1px;
+    color: #2D2D2D;
+    cursor: default;
+    font-weight: bold;
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    position: absolute;
+    width: 78px;
+}
+.mod_tab li.current a:hover {
+    text-decoration: none;
+}
+.mod_sub_tab a {
+    display: inline-block;
+    padding: 0 6px;
+}
+.mod_sub_tab .current {
+    background: none repeat scroll 0 0 #056EA1;
+    color: #FFFFFF;
+    cursor: default;
+    font-weight: bold;
+    padding: 0 10px;
+}
+.mod_sub_tab .current:hover {
+    text-decoration: none;
+}
+.mod_desc {
+    padding-bottom: 20px;
+    position: relative;
+}
+.mod_desc .mod_cont {
+    height: 200px;
+    line-height: 22px;
+    overflow: hidden;
+}
+.mod_desc.open .mod_cont {
+    height: auto;
+    overflow: visible;
+}
+.mod_desc .mod_act {
+    background: url("http://imgcache.qq.com/mediastyle/tenvideo/img/icon_open.png") no-repeat scroll 55px -18px transparent;
+    bottom: 0;
+    height: 15px;
+    line-height: 15px;
+    overflow: hidden;
+    position: absolute;
+    right: 5px;
+}
+.mod_desc.open .mod_act {
+    background-position: 55px 0;
+}
+.mod_desc .mod_act a {
+    display: block;
+    width: 70px;
+}
+.mod_desc .link_close {
+    display: none;
+}
+.mod_desc .link_open {
+    display: block;
+}
+.mod_desc.open .link_close {
+    display: block !important;
+}
+.mod_desc.open .link_open {
+    display: none !important;
+}
+.pop {
+    background: none repeat scroll 0 0 #FFFFFF;
+    position: absolute;
+    z-index: 10001;
+}
+.pop .mod_shadow {
+    background: none repeat scroll 0 0 #000000;
+    height: 3px;
+    opacity: 0.1;
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+}
+.pop .mod_message {
+    margin: 45px 50px 30px;
+    position: relative;
+}
+.pop .mod_message .mod_icon {
+    background: url("http://imgcache.qq.com/mediastyle/tenvideo/img/bg_pop.png") no-repeat scroll 0 0 transparent;
+    height: 40px;
+    position: absolute;
+    top: 8px;
+    width: 35px;
+}
+.pop .mod_message .warning {
+    background-position: -38px 0;
+}
+.pop .mod_message .mod_txt {
+    padding: 0 0 0 45px;
+}
+.pop .mod_message .mod_txt h5 {
+    color: #4B4B4B;
+    font-family: "Microsoft YaHei","微软雅黑","黑体";
+    font-size: 24px;
+    font-weight: normal;
+}
+.pop .mod_message .mod_txt p {
+    line-height: 20px;
+}
+.pop .mod_bt {
+    margin-bottom: 60px;
+    text-align: center;
+}
+.pop .mod_bt a {
+    background: url("images/bg.png") repeat-x scroll 0 -230px transparent;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 5px;
+    padding-left: 10px;
+}
+.pop .mod_bt a:hover {
+    text-decoration: none;
+}
+.pop .mod_bt a span {
+    display: inline-block;
+    height: 20px;
+    line-height: 19px;
+    overflow: hidden;
+    padding-right: 10px;
+}
+.pop .bt_close {
+    background: url("http://imgcache.qq.com/mediastyle/tenvideo/img/bg_pop.png") no-repeat scroll -80px -20px transparent;
+    cursor: pointer;
+    font-size: 0;
+    height: 10px;
+    line-height: 999px;
+    overflow: hidden;
+    position: absolute;
+    right: 6px;
+    top: 6px;
+    width: 10px;
+}
+.mod_remind {
+    bottom: 6px;
+    left: 10px;
+    position: absolute;
+}
+.pop_simple .mod_message {
+    margin-bottom: 45px;
+}
+.pop_simple .mod_message .mod_txt {
+    padding: 0 0 0 28px;
+}
+.pop_simple .mod_message .mod_icon {
+    background: url("http://imgcache.qq.com/mediastyle/tenvideo/img/bg_pop.png") no-repeat scroll -75px -40px transparent;
+    height: 16px;
+    top: 0;
+    width: 18px;
+}
+.pop_share .mod_cont {
+    padding: 0 30px;
+}
+.pop_share h4 {
+    color: #2D2D2D;
+    font-size: 14px;
+    margin-top: 25px;
+}
+.pop_share .mod_reason {
+    margin: 5px 0;
+    overflow: hidden;
+    width: 410px;
+}
+.pop_share .mod_reason h5 {
+    float: left;
+    font-weight: normal;
+}
+.pop_share .mod_reason p {
+    float: right;
+}
+.pop_share .mod_reason p em {
+    color: #FF9600;
+    font-style: normal;
+}
+.pop_share textarea {
+    border: 1px solid #BEBEBE;
+    clear: both;
+    height: 94px;
+    margin-bottom: 5px;
+    overflow: auto;
+    padding: 5px;
+    width: 398px;
+    word-wrap: break-word;
+}
+.pop_share .mod_bt {
+    margin: 10px -5px 20px 0;
+    text-align: right;
+}
+.pop_lost {
+    width: 420px;
+}
+.pop_lost .mod_message {
+    margin-bottom: 15px;
+}
+.pop_lost .mod_message .mod_txt {
+    padding: 0;
+}
+.pop_lost .mod_message .mod_icon {
+    left: 65px;
+    top: 3px;
+}
+.pop_lost .mod_message .mod_txt h5 {
+    padding-bottom: 10px;
+    text-align: center;
+}
+.pop_lost .mod_bt {
+    margin: 15px 0 20px;
+}
+.pop_lost .bt_music_vip {
+    background: none repeat scroll 0 0 #6EB02D;
+    color: #FFFFFF;
+    display: inline-block;
+    line-height: 16px;
+    margin-left: 5px;
+    padding: 1px 4px;
+}
+.pop_lost .bt_music_vip:hover {
+    text-decoration: none;
+}
+.mod_privile_icon a {
+    background-image: url("http://imgcache.qq.com/minimusic_v5/img/icon_vip_fun.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 24px;
+    overflow: hidden;
+    text-indent: -9999px;
+    width: 24px;
+}
+.i_por_aud {
+    background-position: 0 3px;
+}
+.i_por_dow {
+    background-position: 0 -24px;
+}
+.i_por_h_share {
+    background-position: 0 -474px;
+}
+.i_por_zone {
+    background-position: 0 -51px;
+}
+.i_por_ser {
+    background-position: 0 -77px;
+}
+.i_por_share {
+    background-position: 0 -105px;
+}
+.i_por_upload {
+    background-position: 0 -132px;
+}
+.mod_privile {
+    margin: 0 auto;
+    overflow: hidden;
+    width: 350px;
+}
+.mod_privile ul {
+    background: none repeat scroll 0 0 #EAEDF0;
+    overflow: hidden;
+    padding: 5px 0 5px 10px;
+    width: 370px;
+}
+.mod_privile li {
+    float: left;
+}
+.mod_privile .mod_privile_icon a {
+    line-height: 24px;
+    padding-left: 24px;
+    text-indent: 0;
+    white-space: nowrap;
+    width: 96px;
+}
+body {
+}
+.mask_layer {
+    background: none repeat scroll 0 0 #000000;
+    height: 100%;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+}
+.mod_list {
+    margin: 20px 0 30px;
+    padding-bottom: 30px;
+}
+.mod_list .mod_tit {
+    padding: 0 0 5px 25px;
+}
+.mod_list dl {
+    clear: both;
+    margin: 0 2px 0 25px;
+    overflow: hidden;
+    padding: 0 0 15px;
+}
+.mod_list dl:after {
+    clear: both;
+    content: "";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+.mod_list dt {
+    clear: both;
+    color: #787878;
+    font-weight: normal;
+    height: 28px;
+}
+.mod_list dd {
+    float: left;
+    height: 26px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 45px;
+}
+.mod_list .three_col dd {
+    width: 63px;
+}
+.mod_list dd a {
+    float: left;
+}
+.mod_list dd a.current {
+    color: #FF9600;
+    cursor: default;
+    font-weight: bold;
+}
+.mod_list dd a.current:hover {
+    text-decoration: none;
+}
+.mod_artists {
+    margin-top: 15px;
+    padding-top: 15px;
+}
+.mod_tit_wrap {
+    position: relative;
+}
+.mod_tit_wrap .mod_class_list {
+    left: 40px;
+    position: absolute;
+    top: 26px;
+}
+.mod_tit_wrap .mod_class_list span, .mod_tit_wrap .mod_class_list a {
+    display: inline-block;
+    margin-right: 5px;
+}
+.mod_tit_wrap .mod_class_list a {
+    background: url("images/bg.png") no-repeat scroll -83px -275px transparent;
+    font-size: 0;
+    height: 11px;
+    line-height: 999px;
+    overflow: hidden;
+    position: relative;
+    top: 1px;
+    width: 11px;
+}
+.s_page {
+    position: absolute;
+    right: 5px;
+    top: 25px;
+}
+.mod_toolbar {
+    height: 40px;
+    overflow: hidden;
+}
+.mod_toolbar .mod_sort {
+    float: left;
+    width: 260px;
+}
+.mod_video_list .mod_cont {
+    overflow: hidden;
+    padding-bottom: 20px;
+    width: 720px;
+}
+.mod_video_list .mod_item {
+    float: left;
+    margin: 0 20px 45px 0;
+    width: 120px;
+}
+.mod_video_list .mod_item .mod_poster {
+    height: 140px;
+    width: 100px;
+}
+.mod_video_list .mod_item .mod_poster img {
+    height: 140px;
+    width: 100px;
+}
+.mod_video_list .mod_item .mod_item_tit h3 {
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 5px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_video_list .mod_item .mod_item_tit p {
+    height: 18px;
+    overflow: hidden;
+    text-align: center;
+    white-space: nowrap;
+    width: 100%;
+}
+.mod_video_list .mod_item .mod_item_tit p span {
+    display: none;
+}
+.short_video .mod_item .mod_item_tit h3 {
+    height: 42px;
+    white-space: normal;
+}
+.mod_video_list .mod_data, .mod_video_list .mod_details_desc {
+    display: none;
+}
+.mod_video_list .mod_scores {
+    margin-top: -5px;
+    text-align: center;
+}
+.mod_video_list .mod_scores strong {
+    font-family: "Times New Roman";
+    font-size: 24px;
+    font-weight: normal;
+    margin-right: 5px;
+}
+.mod_video_list .mod_scores strong span {
+    font-size: 12px;
+    font-weight: bold;
+}
+.mod_video_list .mod_scores .mod_number {
+    display: none;
+}
+.details .mod_cont {
+    width: 100%;
+}
+.details .mod_item {
+    float: none;
+    height: 140px;
+    margin: 0;
+    padding: 0 0 20px 120px;
+    position: relative;
+    width: auto;
+}
+.details .mod_item .mod_item_tit {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 410px;
+}
+.details .mod_item .mod_item_tit h3 {
+    float: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-top: 2px;
+    text-align: left;
+}
+.details .mod_item .mod_item_tit p {
+    float: left;
+    line-height: 24px;
+    text-align: left;
+    width: auto;
+}
+.details .mod_item .mod_item_tit p span {
+    display: inline;
+    margin: 0 10px;
+}
+.details .mod_item .mod_pic {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.details .mod_item .mod_scores {
+    margin: 0;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    top: -10px;
+}
+.details .mod_item .mod_scores strong {
+    font-size: 30px;
+}
+.details .mod_item .mod_scores strong span {
+    font-size: 18px;
+}
+.details .mod_item .mod_scores .mod_number {
+    display: inline;
+}
+.details .mod_item .mod_scores em {
+    display: none;
+}
+.details .mod_item .mod_data {
+    display: block;
+    margin: 5px 0 7px;
+    overflow: hidden;
+    width: 100%;
+}
+.details .mod_item .mod_data li {
+    float: left;
+    line-height: 22px;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 50%;
+}
+.details .mod_item .mod_data li a {
+    margin-right: 5px;
+}
+.details .mod_item .mod_details_desc {
+    display: block;
+}
+.transverse_pic .mod_video_list .mod_item {
+    width: 160px;
+}
+.transverse_pic .mod_video_list .mod_item .mod_poster {
+    height: 90px;
+    width: 160px;
+}
+.transverse_pic .mod_video_list .mod_item .mod_poster img {
+    height: 90px;
+    width: 160px;
+}
+.transverse_pic .details .mod_item {
+    height: 90px;
+    margin: 0;
+    padding: 0 0 20px 180px;
+    width: auto;
+}
+.transverse_pic .details .mod_item .mod_item_tit p {
+    display: none;
+}
+.transverse_pic .details .mod_item .mod_data {
+    margin: 5px 0;
+}
+.transverse_pic .mod_video_list .hover .mod_details_tips {
+    left: 135px;
+}
+.transverse_pic .mod_video_list .hover .arrow_right {
+    left: auto;
+    right: 135px;
+}
+.mod_focus_pic {
+    height: 150px;
+    overflow: hidden;
+}

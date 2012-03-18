@@ -1,0 +1,127 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@using WWPlatform.Core.Utilities;
+@model WWPlatform.Web.ViewModels.CNTV.PBViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var w = Model.Webcast;
+    var lectuer = w.Feature.Lectuer == null ? "" : w.Feature.Lectuer.Name;
+    ViewBag.Title = string.Format("{0} {1} {2} 文字讲稿 文化中国 百家讲坛", w.Title, w.Feature.Title, lectuer);
+}
+@section res{
+    <meta name="keywords" content="@w.Title @w.Feature.Title @lectuer" />
+    <meta name="description" content="@w.Excerpt" />
+    <link href="@Url.StyleSheet("cntv/browse.css")" rel="stylesheet" type="text/css" />
+}
+@section head{
+    @Html.Partial("Header")
+}
+<div class="container_16 clearfix">
+    <div class="grid_16">
+        <h2 class="mod_tit">
+            @w.Feature.Title@w.Title
+        </h2>
+        <div class="mod_info">
+            <ul>
+                <li>
+                    <label>关键字：</label>
+                    @if (string.IsNullOrWhiteSpace(w.Tags))
+                    {
+                        <text>暂无</text>
+                    }
+                    else
+                    {
+                        foreach (var tag in w.Tags.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries))
+                        {
+                        <a href="@string.Format("/search.html?ms_key={0}", System.Web.HttpUtility.UrlEncode(tag.Trim()))" target="search">@tag</a>
+                        }
+                    }
+                </li>
+                <li style="width: 170px;">
+                    <label>主题：</label>
+                    <a href="@Url.Action(w.Feature)">@w.Feature.Title</a>
+                </li>
+                <li style="width: 150px;">
+                    <label>撰稿日期：</label>
+                    @w.Script.Compiled.ToString("yyyy年M月d日")
+                </li>
+                <li style="width: 90px;">
+                    <label>阅读：</label>
+                    @w.Script.Visit
+                </li>
+                <li class="vico">
+                    <a href="@Url.Action("play", "webcast", new { id = w.Base64Key })">观看视频</a>
+                </li>
+                <li style="width: 50px;">
+                    <a href="@Url.Action("create", "home", new { area = "pdf", token = "w" + w.Base64Key })">
+                        下载PDF</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container_16 clearfix">
+    <div class="grid_13">
+        <div class="mod_inner">
+            <div class="mod_cont">
+                @Html.Raw(w.Script.Text)
+            </div>
+            <div class="mod_license">
+                <img style="border-width: 0pt;" alt="转载版权说明" align="left" src="@Url.Image("license.png")"/>
+                <p>
+                    <label>文字讲稿为【文字中国】整理，欢迎转载。但必须保留【文化中国】的署名及链接： </label>
+                    <a href="@Url.Action("browse", "webcast", new { id = w.Base64Key })">
+                        @Request.Url.AbsoluteUri
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="grid_3">
+        @if (Model.Kin.Count() > 0)
+        {
+            <div class="mod_kin bor">
+                <h2 class="mod_tit_box">
+                    <span>相关讲稿</span>
+                </h2>
+                <div class="mod_cont">
+                    <ul>
+                        @foreach (var k in Model.Kin)
+                        {
+                            <li>
+                                <a href="@Url.Action("browse", "webcast", new { id = k.Base64Key })">@k.Title</a>
+                                <a href="@Url.Action("play", "webcast", new { id = k.Base64Key })">
+                                    <img src="@Url.Image("vico.png")" alt="点此播放" />
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        }
+        <div class="mod_ulike bor">
+            <h2 class="mod_tit_box">
+                <span>您可能也喜欢</span>
+            </h2>
+            <div class="mod_cont">
+                <ul>
+                    @foreach (var f in Model.Ulike)
+                    {
+                        <li>
+                            <a href="@Url.Action(f)">@f.Title</a>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container_16 clearfix">
+    <div class="grid_13">
+        <ul>
+            <li class="mod_prev">
+                前一篇：没有了</li>
+            <li class="mod_next">
+                后一篇：没有了</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,175 @@
+﻿@using WWPlatform.Web.Mvc.Extensions
+@using WWPlatform.Model;
+@using WWPlatform.Core.Utilities;
+@using WWPlatform.Web.ViewModels;
+@using System.Linq;
+@using System.Text.RegularExpressions;
+@model WWPlatform.Web.ViewModels.CNTV.LibViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "检索 文化中国 百家讲坛";
+}        
+@section res{
+    <link href="@Url.StyleSheet("cntv/lib.css")" rel="stylesheet" type="text/css" />
+}
+@section head{
+    @Html.Partial("Header")
+}
+
+<div class="container_16 clearfix">
+    <div class="grid_4" style="margin-right:20px;">
+        <div class="mod_list">
+            <div class="bor">
+                <h2 class="mod_tit">
+                    视频索引</h2>
+                <dl gtype="1" gname="mi_sub" class=" three_col _group" gvalue="1">
+                    <dt>按分类</dt>
+                    <dd>
+                        <a title="全部" tvalue="-1" class="_gtag _gdefault" href="/lib/9_-1_1_1.html">全部</a>
+                    </dd>
+                    @foreach (var s in Model.Subtypes)
+                    {
+                        <dd>
+                        <a title="@s.Title" tvalue="@s.Idkey" class="_gtag" href="@string.Format("/lib/1_{0}_1_1.html", s.Idkey)">@s.Title</a>
+                        </dd>
+                    }
+                </dl>
+                <dl gtype="1" gname="mi_cat" class="_group" gvalue="2">
+                    <dt>按题材</dt>
+                    <dd>
+                        <a title="全部" tvalue="-1" class="_gtag _gdefault" href="/lib/9_-1_1_1.html">全部</a>
+                    </dd>
+                    @foreach (var c in Model.Catalogs)
+                    {
+                        <dd>
+                            <a title="@c.Title" tvalue="@c.Idkey" class="_gtag" href="@string.Format("/lib/2_{0}_1_1.html", c.Idkey)">@c.Title</a>
+                        </dd>
+                    }
+                </dl>
+            </div>
+            <div class="mod_artists bor">
+                <dl gname="mi_dyn" class="four_col _group">
+                    <dt>按朝代</dt>
+                    @foreach (var d in Model.Dynasties)
+                    {
+                        <dd>
+                            <a title="@d.Title" tvalue="@d.Idkey" href="@string.Format("/lib/3_{0}_1_1.html", d.Idkey)">@d.Title</a>
+                        </dd>
+                    }
+                </dl>
+            </div>
+            <div class="mod_artists bor">
+                <dl gname="mi_lec" class="three_col _group">
+                    <dt>按讲师</dt>
+                    @foreach (var l in Model.Lectuers)
+                    {
+                        <dd>
+                            <a title="@l.Name" tvalue="@l.Idkey" href="@string.Format("/lib/4_{0}_1_1.html", l.Idkey)">@l.Name</a>
+                        </dd>
+                    }
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="grid_12">
+        <div class="mod_tit_wrap">
+            <h2 class="mod_tit">视频</h2>
+            <div id="nav_option" class="mod_class_list">
+                <span>-</span> 
+                <span>
+                </span>
+            </div>
+            <!-- 简单分页 开始 -->
+            <div id="pager2" class="mod_pagenav s_page" style="display: none;">
+            </div>
+            <!-- 简单分页 结束 -->
+        </div>
+        <div class="mod_toolbar">
+            <div class="mod_list_display">
+                <p gtype="0" gname="mi_show_type" class="mod_sub_tab _group">
+                    显示模式：
+                    <a tvalue="0" class="_gtag _gdefault current" href="javascript:;">封面图</a> | 
+                    <a tvalue="1" class="_gtag" href="javascript:;">详情</a>                    
+                </p>
+            </div>
+        </div>
+        <!-- 此处加上类名details 切换详情模式-->
+        <div class="mod_video_list">
+            <div id="content" class="mod_cont">
+            </div>
+        </div>
+        <!-- 分页 开始 -->
+        <div id="pager" class="mod_pagenav" style="display: none;">
+        </div>
+        <!-- 分页 结束 -->
+    </div>
+</div>
+
+<!--输出模板 开始-->
+<textarea style="display: none" id="tb_tmp" rows="0" cols="0">
+{for f in features}
+<div class="mod_item">
+	<div class="mod_pic">
+		<a href="/f/${f.show_id}.html" class="mod_poster_v">
+			<img src="${f.pic_url}" alt="${f.title}" class="_tipimg" />
+		</a>
+	</div>
+	<div class="mod_txt">
+		<div class="mod_item_tit">
+			<h3><a href="/f/${f.show_id}.html">${f.title}</a></h3>
+		</div>
+        <p class="mod_item_note">${f.sub_title}</p>
+		<ul class="mod_data">
+			<li class="director">讲师：
+				<a href="4_${f.lec_index}_${op.mi_show_type}_1.html">${f.lec}</a>
+			</li>
+			<li>朝代：
+                <a href="3_${f.dyn_index}_${op.mi_show_type}_1.html">${f.dyn}</a>
+			</li>				
+			<li>题材：
+                <a href="2_${f.cat_index}_${op.mi_show_type}_1.html">${f.cat}</a>
+			</li>
+            <li>分类：
+                {for sub in f.subtype}
+                    <a href="1_${sub.id}_${op.mi_show_type}_1.html">${sub.n}</a>
+                {/for}
+            </li>
+		</ul>
+		<p class="mod_details_desc c_txt4">
+            <span class="c_txt1">简介：</span>${f.desc}
+            <a href="/f/${f.show_id}.html" title="${f.title}">查看详情</a>
+        </p>
+	</div>						
+</div>
+{/for}
+</textarea>
+<!--输出模板 结束-->
+
+<script src="@Url.Javascript("cntv/txv.lib.js")" type="text/javascript"></script>
+<script language="javascript" type="text/javascript">
+    @{
+        string pattern = @"(?<main>\d)_(?<sub>[+-]?\d+)_(?<mi_show_type>[01])_1";
+        Func<string, int> func = (q) => { return int.Parse(Regex.Match(Request.RawUrl,pattern).Groups[q].Value);};
+        string idx = "";
+        switch(func("main"))
+        {
+            case 1:
+                idx = "mi_sub";
+                break;
+            case 2:
+                idx = "mi_cat";
+                break;
+            case 3:
+                idx = "mi_dyn";
+                break;
+            case 4:
+                idx = "mi_lec";
+                break;
+        }
+    }
+
+    txv.f_list.init({
+        mi_show_type : @func("mi_show_type"),
+        @idx : @func("sub")
+        }, true);
+</script>

@@ -1,0 +1,54 @@
+﻿.mod_cont {
+    font-size: 14px;
+    color: #2d2d2d;
+}
+.mod_cont .inset {
+    text-align: center;
+}
+.mod_cont .inset .note {
+    margin: 5px 0;
+}
+.mod_cont p {
+    text-indent: 2.5em;
+    line-height: 180%;
+    margin: 5px 0;
+}
+.mod_cont h3 {
+    text-align: center;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 15px 0;
+}
+.mod_tit {
+    font-family:"黑体";
+    text-align: center;
+    font-weight: normal;
+    font-size: 20px;
+}
+.mod_info ul {
+    padding: 5px 0 5px 40px;
+    overflow: hidden;
+    border-bottom: 1px solid gray;
+    margin-bottom: 20px;
+}
+.mod_info ul li {
+    float: left;
+    line-height: 24px;
+    width: 180px;
+}
+.mod_list {
+    padding: 0 0 10px 10px;
+}
+.mod_list ul li {
+    line-height: 25px;
+    height: 25px;
+}
+.mod_recommend, .mod_ulike {
+    margin-top: 15px;
+}
+.mod_rank .mod_list ul {
+    line-height: 25px;
+    overflow: hidden;
+    padding-left: 20px;
+    background: url("../images/bg_u.gif") no-repeat scroll -230px -171px transparent;
+}

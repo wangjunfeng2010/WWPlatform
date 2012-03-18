@@ -1,0 +1,113 @@
+﻿@using WWPlatform.Web.Mvc.Extensions;
+@{
+    Layout = null;
+}
+<div class="top">
+    <div class="mod_inner">
+        <p class="mod_login">
+            <span id="login_nick"></span><a target="_self" href="javascript:;" id="login_action">
+            </a>
+        </p>
+    </div>
+</div>
+<div class="head">
+    <div class="mod_inner">
+        <h1>
+            <span>文化中国</span> <a _hot="NAV.LOGO" class="_hotkey" href="/">
+                <img alt="文化中国" src="@Url.Image("logo.jpg")">
+            </a>
+        </h1>
+        @using (Html.BeginForm("search", "home", null, FormMethod.Get, new { @id = "sform", @name = "sform", @target = "search" }))
+        {
+            <fieldset class="mod_search open">
+                <legend><span>搜索</span></legend>
+                <p>
+                    @Html.Label("搜索：")
+                    @Html.TextBox("ms_key", "请输入关键词", new { @class = "mod_search_txt", @maxlength = "40", @id = "iWord", @autocomplete = "off" })
+                    <button id="sbutton" class="mod_search_bt" type="submit">
+                        <span>搜索</span>
+                    </button>
+                </p>
+                <div id="mod_keywords_list" style="display: none;" class="mod_pop">
+                    <ul id="sgt_list" style="display: none;">
+                    </ul>
+                </div>
+            </fieldset>
+        }
+        <!-- 历史观看 开始 -->
+        <!-- 此处添加类名open 浮层出现 -->
+        <!--
+            <div id="history" class="mod_history">
+                <h6>
+                    <a class="c_txt4" target="_self" href="javascript:;">您的历史观看<span class="mod_arrow"> </span></a>
+                </h6>
+                <div id="history_pop" class="mod_pop">
+                </div>
+            </div>
+            -->
+        <!-- 历史观看 结束 -->
+    </div>
+</div>
+<div class="mod_nav">
+    <div class="mod_inner">
+        <ul>
+            @{
+                object obj = this.Request.RequestContext.RouteData.DataTokens["Area"];
+                int tid = -1;
+                if(obj != null)
+                {
+                    switch(obj.ToString().ToLower())
+                    {
+                        case "cntv":
+                            tid = 1;
+                            break;
+                        case "atk":
+                            tid = 2;
+                            break;
+                        case "fiction":
+                            tid = 3;
+                            break;
+                    }
+                }
+            }
+            <li>
+                <a class="@string.Format("{0}",tid == -1 ?"current":"")" href="/">
+                    <strong>首页</strong>
+                </a>
+            </li>
+            <li>
+                <a class="@string.Format("{0}",tid == 1 ?"current":"")" href="@Url.Action("index","home",new {area = "CNTV"})">
+                    <strong>百家讲坛</strong>
+                </a>
+            </li>
+            <li>
+                <a class="@string.Format("{0}",tid == 2 ?"current":"")" href="@Url.Action("index", "home", new { area = "atk" })">
+                    <strong>文刊摘选</strong>
+                </a>
+            </li>
+        </ul>
+        <div class="mod_notice">
+            <dl>
+                <dt><strong>公告：</strong> </dt>
+                <dd>
+                    <ul id="b_items" style="position: relative;">
+                        <li>
+                            <a>历史小说连载开通啦</a>
+                        </li>
+                        <li style="display:none;">
+                           <a>可以下载PDF格式的讲稿啦</a>
+                        </li>
+                        <li style="display:none;">
+                            <a>《英雄项羽》讲稿全集整理完毕</a>
+                        </li>
+                    </ul>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<script src="@Url.Javascript("txv.notice.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var notice = new txv.notice();
+    notice.init();
+</script>
